@@ -4,6 +4,11 @@ import { Switch } from 'react-router-dom';
 
 import { Login } from './Sections/Login';
 import { Dashboard } from './Sections/Dashboard';
+import { DashboardDashboard } from './Sections/Dashboard/Pages/Dashboard';
+import { DashboardPatients } from './Sections/Dashboard/Pages/Patients';
+import { DashboardAlerts } from './Sections/Dashboard/Pages/Alerts';
+
+import { PatientPage } from './Sections/PatientPage';
 
 const routes = [
   {
@@ -14,9 +19,26 @@ const routes = [
   },
   {
     path: "/me",
-    exact: true,
     protected: false,
-    component: Dashboard
+    component: Dashboard,
+    routes: [
+      {
+        path: "/me/dashboard",
+        component: DashboardDashboard
+      },
+      {
+        path: "/me/pacientes",
+        component: DashboardPatients
+      },
+      {
+        path: "/me/alertas",
+        component: DashboardAlerts
+      }
+    ]
+  },
+  {
+    path: "/paciente",
+    component: PatientPage
   },
 ];
 

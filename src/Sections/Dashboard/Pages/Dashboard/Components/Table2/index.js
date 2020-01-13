@@ -1,0 +1,120 @@
+import React from 'react';
+
+const Table2 = () => {
+    return( 
+
+        <table className="table text-center">
+            <thead className="bg-primary">
+                <tr>
+                    <th scope="col" className="text-center text-white">Posição</th>
+                    <th scope="col" className="text-center text-white">Paciente</th>
+                    <th scope="col" className="text-center text-white">Atendimentos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>8º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>9º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>10º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>11º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>12º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>13º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>15º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>16º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>17º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>18º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>19º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>20º</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    );
+}
+ 
+export default Table2;
