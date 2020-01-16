@@ -28,9 +28,11 @@ const AuthContextProvider = (props) => {
                 if(user === undefined){
                     if(DebugConsole)console.log("Check Token Function Start");
                     const params = {
-                        operation: 'CheckToken'
+                        operation: 'Verify'
                     }
                     CallForSomeApi((params),(axiosResponse) => {
+                        //console.log(axiosResponse)
+                        /*
                         if(DebugConsole)console.log('Route "/checkToken" Inquiry Result ->  ', axiosResponse );
                         if(axiosResponse && axiosResponse.response && axiosResponse.response.status === 401){
                             if(DebugConsole)console.log("Returned with status 401");
@@ -53,6 +55,7 @@ const AuthContextProvider = (props) => {
                                 }
                             }
                         }
+                        */
                     });
                 }else{
                     if(DebugConsole)console.log('User already defined in context');

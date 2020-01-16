@@ -1,0 +1,122 @@
+/* EFFECTS */
+.PersonalDashboard-LeftEffect{
+    -webkit-animation-name: PersonalDashboadLeftEffect;
+    -webkit-animation-duration: 0.5s;
+    animation-name: PersonalDashboadLeftEffect;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes PersonalDashboadLeftEffect {
+    from {
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes PersonalDashboadLeftEffect {
+    from {
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+.PersonalDashboard-RightEffect{
+    -webkit-animation-name: PersonalDashboadRightEffect;
+    -webkit-animation-duration: 0.5s;
+    animation-name: PersonalDashboadRightEffect;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes PersonalDashboadRightEffect {
+    from {
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes PersonalDashboadRightEffect {
+    from {
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+.PersonalDashboard-ProfileCardCover{
+    height: 72px;
+    width: 100%;
+    border-top-left-radius: calc(.375rem - 1px);
+    border-top-right-radius: calc(.375rem - 1px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.PersonalDashboard-card-body{
+    padding: 0px;
+}
+.PersonalDashboard-NameContainer{
+    width: 100%;
+    text-align: center;
+}
+.PersonalDashboard-NameContainer p{
+    margin: 0px;
+}
+.PersonalDashboard-NameContainer span{
+    font-size: 8pt;
+    color: var(--textGray);
+}
+.PersonalDashboard-BadgesContainer{
+    width: 100%;
+    height: 50px;
+    padding: 0px 10px;
+    margin-top: 0px;
+}
+.PersonalDashboard-BadgeContainer{
+    height: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.PersonalDashboard-BadgeContainer img{
+    height: 30px;
+    display: block;
+    margin: 0px auto;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+.PersonalDashboard-BadgeContainer img:hover{
+    height: 35px;
+}
+.PersonalDashboard-ProfileCardPhoto{
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--white);
+}
+/* NAV PILLS */
+.PersonalDashboard-NavPills li{
+    padding: 0px !important;
+    margin-bottom: 5px;
+}
+.PersonalDashboard-NavPills li a{
+    text-align: left;
+}
+.PersonalDashboard-NavPills li a:hover{
+    margin-left: 10px;
+    color: var(--primary) !important;
+}
+.PersonalDashboard-NavPills li .active:hover{
+    color: var(--white) !important;
+    margin-left: 0px;
+}

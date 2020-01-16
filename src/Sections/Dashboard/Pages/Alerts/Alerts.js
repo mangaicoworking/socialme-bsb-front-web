@@ -21,10 +21,11 @@ const BrasiliaManagerDashboardAlerts = () => {
                             <div className="card-body">
                                 
                                 <div className="row">
-                                    <div className="col-md-3"></div>
+                                    <div className="col-md-2"></div>
                                     <div className="col-md-3">
                                         <Table1 />
                                     </div>
+                                    <div className="col-md-2"></div>
                                     <div className="col-md-3">
                                         <Table2 />
                                     </div>

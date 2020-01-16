@@ -103,3 +103,13 @@ a:hover {
     transform: translateY(0px);
     box-shadow: none;
 }
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    border-color: var(--primary);
+    background-color: var(--primary);
+}
+.HighlightSocialMe{
+    background-color: #525f7f;
+    color: var(--white);
+}
