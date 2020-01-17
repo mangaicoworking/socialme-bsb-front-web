@@ -22,7 +22,7 @@ const AuthContextProvider = (props) => {
         if(redirect){
             setRedirect(false)
         }else{
-            let tokenLocalStorage = localStorage.getItem('token');
+            let tokenLocalStorage = localStorage.getItem('login-token');
             if(tokenLocalStorage){
                 if(DebugConsole){console.log('Token found in LocalStorage')};
                 if(user === undefined){
@@ -31,31 +31,16 @@ const AuthContextProvider = (props) => {
                         operation: 'Verify'
                     }
                     CallForSomeApi((params),(axiosResponse) => {
-                        //console.log(axiosResponse)
-                        /*
                         if(DebugConsole)console.log('Route "/checkToken" Inquiry Result ->  ', axiosResponse );
-                        if(axiosResponse && axiosResponse.response && axiosResponse.response.status === 401){
+                        if(axiosResponse === 401){
                             if(DebugConsole)console.log("Returned with status 401");
                             logout()
                             if(DebugConsole)console.log("Logout!");
-                            //showAlert('error','Sua Sessão expirou','bottom-right')
                             setRedirect(true);
                             if(DebugConsole)console.log("Redirect to Home Page");
                         }else{
-                            if (axiosResponse.header){
-                                const code = axiosResponse.header.code.substr(-5);
-                                if(DebugConsole)console.log("Response Code: " + code);
-                                switch(code){
-                                    case CatchResponseCode('CheckToken','Person found'):
-                                        return (
-                                            setUser(axiosResponse.data.person)
-                                        )
-                                    default:
-                                        return;
-                                }
-                            }
+                            setUser(axiosResponse.header.user)
                         }
-                        */
                     });
                 }else{
                     if(DebugConsole)console.log('User already defined in context');
@@ -69,7 +54,7 @@ const AuthContextProvider = (props) => {
 
     const populateAuth = (tokenValue, UserData) => {
         if(DebugConsole)console.log('Function Populate Auth');
-        localStorage.setItem('token', tokenValue);
+        localStorage.setItem('login-token', tokenValue);
         localStorage.setItem('isAuth', true);
         setToken(tokenValue);
         setUser(UserData);

@@ -33,7 +33,7 @@ const DefaultNavbar = () => {
                                         <div className="media align-items-center">
                                             <span className="avatar avatar-sm rounded-circle"
                                                 style={{
-                                                    backgroundImage: `url('${user ? user.profile.photo : '/assets/img/figures/user.png'}')`,
+                                                    backgroundImage: `url('/assets/img/figures/user.png')`,
                                                     backgroundPosition: 'center',
                                                     backgroundRepeat: 'no-repeat',
                                                     backgroundSize: 'cover'
@@ -42,23 +42,23 @@ const DefaultNavbar = () => {
                                             </span>
                                             <div className="media-body ml-2 d-none d-lg-block">
                                                 <span className="mb-0 text-sm  font-weight-bold">
-                                                    {user ? user.profile.name.split(" ")[0] : ''}
+                                                    {user ? user : ''}
                                                 </span>
                                             </div>
                                         </div>
                                     </a>
                                     <div style={{ margin: '1px 0px' }} className="dropdown-menu dropdown-menu-right">
                                         <div className="dropdown-header noti-title">
-                                            <h6 className="text-overflow m-0">Bem vindo {user ? user.profile.name.split(" ")[0] : ''} !</h6>
+                                            <h6 className="text-overflow m-0">Bem vindo {user ? user : ''} !</h6>
                                         </div>
-                                        <a href="#!" className="dropdown-item">
+                                        <Link to="/me" className="dropdown-item" >
                                             <i className="fas fa-chart-pie"></i>
                                             <span>Painel</span>
-                                        </a>
-                                        <a href="#!" className="dropdown-item">
-                                            <i className="ni ni-single-02"></i>
+                                        </Link>
+                                        <Link to="/perfil" className="dropdown-item" >
+                                            <i className="fas fa-chart-pie"></i>
                                             <span>Perfil</span>
-                                        </a>
+                                        </Link>
                                         <div className="dropdown-divider"></div>
                                         <Link to="/" className="dropdown-item" onClick={() => Logout()}>
                                             <i className="ni ni-user-run"></i>

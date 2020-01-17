@@ -71,9 +71,7 @@ const BrasiliaManagerDashboardPatients = () => {
     }
 
     useEffect(() => {
-        console.log('use effect')
         if (goAPI) {
-            console.log('goAPI')
             setLoad(true);
             setRender(false);
             const params = {
@@ -91,8 +89,8 @@ const BrasiliaManagerDashboardPatients = () => {
                         cpf: filtersSubmit.cpf,
                         cns: filtersSubmit.cns,
                         birth: filtersSubmit.birthDate,
-                        prontuarioMV: filtersSubmit.prontuarioMV,
-                        prontiarioSES: filtersSubmit.prontiarioSES
+                        mv: filtersSubmit.prontuarioMV,
+                        ses: filtersSubmit.prontiarioSES
                     }
                 }
             }

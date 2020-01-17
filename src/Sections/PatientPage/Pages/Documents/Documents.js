@@ -1,5 +1,7 @@
 import React from 'react';
 import './Documents.css';
+//SERVICES
+import { cpfMask } from './../../../../Services/masks';
 
 const Documents = (props) => {
     return (
@@ -15,232 +17,68 @@ const Documents = (props) => {
                 </div>
             </div>
             <div className="card-body PageDocuments">
-                {/* CPF */}
-                <div className="Documents-Row">
-                    <div className="Documents-Row-ImageContainer">
-                        <img src={'/assets/img/documents/cpf.png'} alt="Description" />
-                    </div>
-                    <div className="Documents-Row-InputsContainer">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h3 className="heading mb-0 mb-2">CPF (Cadastro de Pessoas Físicas)</h3>
-                            </div>
-                            <div className="col-md-6">
-                                <button type="button" className="btn btn-primary btn-sm" style={{ float: 'right' }}>Atualizar</button>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="dropzone dropzone-multiple dz-clickable" data-toggle="dropzone" data-dropzone-multiple="" data-dropzone-url="http://">
-                                    <ul className="dz-preview dz-preview-multiple list-group list-group-lg list-group-flush"></ul>
-                                    <div style={{ paddingTop: '5px', paddingBottom: '5px' }} className="dz-default dz-message">
-                                        <span>Solte seus arquivos aqui para enviar</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="form-group">
-                                    <label className="form-control-label">Número do CPF</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.mainDocument ? props.patient.mainDocument.number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="form-group">
-                                    <label className="form-control-label">Data da Emissão</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                                {/* CNS */}
-                                <div className="Documents-Row">
-                    <div className="Documents-Row-ImageContainer">
-                        <img src={'/assets/img/documents/cns.jpg'} alt="Description" />
-                    </div>
-                    <div className="Documents-Row-InputsContainer">
-                    <div className="row">
-                            <div className="col-md-6">
-                                <h3 className="heading mb-0 mb-2">CNS (Cartão Nacional de Saúde)</h3>
-                            </div>
-                            <div className="col-md-6">
-                                <button type="button" className="btn btn-primary btn-sm" style={{ float: 'right' }}>Atualizar</button>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="dropzone dropzone-multiple dz-clickable" data-toggle="dropzone" data-dropzone-multiple="" data-dropzone-url="http://">
-                                    <ul className="dz-preview dz-preview-multiple list-group list-group-lg list-group-flush"></ul>
-                                    <div style={{ paddingTop: '5px', paddingBottom: '5px' }} className="dz-default dz-message">
-                                        <span>Solte seus arquivos aqui para enviar</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Número do CNS</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.documents && props.patient.documents[0] ? props.patient.documents[0].number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">CD</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.documents && props.patient.documents[0] && props.patient.documents[0].fields && props.patient.documents[0].fields[0] ? props.patient.documents[0].fields[0].number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div className="table-responsive">
+                    <table className="table align-items-center table-flush">
+                        <thead className="thead-light">
+                            <tr>
+                                <th>Documento</th>
+                                <th>Número</th>
+                            </tr>
+                        </thead>
+                        <tbody className="list">
 
-                {/* RG */}
-                <div className="Documents-Row">
-                    <div className="Documents-Row-ImageContainer">
-                        <img src={'/assets/img/documents/rg.jpg'} alt="Description" />
-                    </div>
-                    <div className="Documents-Row-InputsContainer">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h3 className="heading mb-0 mb-2">RG (Registro Geral)</h3>
-                            </div>
-                            <div className="col-md-6">
-                                <button type="button" className="btn btn-primary btn-sm" style={{ float: 'right' }}>Atualizar</button>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="dropzone dropzone-multiple dz-clickable" data-toggle="dropzone" data-dropzone-multiple="" data-dropzone-url="http://">
-                                    <ul className="dz-preview dz-preview-multiple list-group list-group-lg list-group-flush"></ul>
-                                    <div style={{ paddingTop: '5px', paddingBottom: '5px' }} className="dz-default dz-message">
-                                        <span>Solte seus arquivos aqui para enviar</span>
+                            {/* CPF */}
+                            <tr>
+                                <th scope="row">
+                                    <div className="media align-items-center">
+                                        <img style={{ height: '30px', marginRight: '10px' }} alt="Implaceholder" src="/assets/img/documents/cpf.png" />
+                                        <div className="media-body" style={{ display: 'grid' }}>
+                                            <span className="name mb-0 text-sm">{`CPF (Cadastro de Pessoas Físicas)`}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Número do RG</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.documents && props.patient.documents[1] ? props.patient.documents[1].number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Data da Expedição</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Órgão Emissor</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                </th>
+                                <td>{props.patient.mainDocument ? cpfMask(props.patient.mainDocument.number) : ''}</td>
+                            </tr>
+                             {/* CNS */}
+                             <tr>
+                                <th scope="row">
+                                    <div className="media align-items-center">
+                                        <img style={{ height: '30px', marginRight: '10px' }} alt="Implaceholder" src="/assets/img/documents/cns.jpg" />
+                                        <div className="media-body" style={{ display: 'grid' }}>
+                                            <span className="name mb-0 text-sm">{`CNS (Cartão Nacional de Saúde)`}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>{props.patient.documents && props.patient.documents[0] ?  props.patient.documents[0].number : ''}</td>
+                            </tr>
+                            {/* RG */}
+                            <tr>
+                                <th scope="row">
+                                    <div className="media align-items-center">
+                                        <img style={{ height: '30px', marginRight: '10px' }} alt="Implaceholder" src="/assets/img/documents/rg.jpg" />
+                                        <div className="media-body" style={{ display: 'grid' }}>
+                                            <span className="name mb-0 text-sm">{`RG (Registro Geral)`}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>{props.patient.documents && props.patient.documents[1] ? props.patient.documents[1].number : ''}</td>
+                            </tr>
+                            {/* TITULO */}
+                            <tr>
+                                <th scope="row">
+                                    <div className="media align-items-center">
+                                        <img style={{ height: '30px', marginRight: '10px' }} alt="Implaceholder" src="/assets/img/documents/tituloeleitoral.jpg" />
+                                        <div className="media-body" style={{ display: 'grid' }}>
+                                            <span className="name mb-0 text-sm">{`Título de eleitor`}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>{props.patient.documents && props.patient.documents[2] ? props.patient.documents[2].number : ''}</td>
+                            </tr>
 
-                {/* PIS */}
-                <div className="Documents-Row">
-                    <div className="Documents-Row-ImageContainer">
-                        <img src={'/assets/img/documents/tituloeleitoral.jpg'} alt="Description" />
-                    </div>
-                    <div className="Documents-Row-InputsContainer">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h3 className="heading mb-0 mb-2">Título de eleitor</h3>
-                            </div>
-                            <div className="col-md-6">
-                                <button type="button" className="btn btn-primary btn-sm" style={{ float: 'right' }}>Atualizar</button>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="dropzone dropzone-multiple dz-clickable" data-toggle="dropzone" data-dropzone-multiple="" data-dropzone-url="http://">
-                                    <ul className="dz-preview dz-preview-multiple list-group list-group-lg list-group-flush"></ul>
-                                    <div style={{ paddingTop: '5px', paddingBottom: '5px' }} className="dz-default dz-message">
-                                        <span>Solte seus arquivos aqui para enviar</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Número do Título</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.documents && props.patient.documents[2] ? props.patient.documents[2].number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Zona</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.documents && props.patient.documents[2] && props.patient.documents[2].fields && props.patient.documents[2].fields[0] ? props.patient.documents[2].fields[0].number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <label className="form-control-label">Seção</label>
-                                    <input
-                                        className={"form-control "}
-                                        type={'text'}
-                                        defaultValue={props.patient.documents && props.patient.documents[2] && props.patient.documents[2].fields && props.patient.documents[2].fields[1] ? props.patient.documents[2].fields[1].number : ''}
-                                        style={{ textTransform: 'uppercase' }}
-                                        disabled={true}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>{/* /card-body */}

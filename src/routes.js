@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: "/me",
-    protected: false,
+    protected: true,
     component: Dashboard,
     routes: [
       {

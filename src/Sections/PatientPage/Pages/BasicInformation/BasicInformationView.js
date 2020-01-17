@@ -32,7 +32,7 @@ const BasicInformationView = (props) => {
                                 <input
                                     className={"form-control "}
                                     type={'text'}
-                                    defaultValue={props.patient.name ? props.patient.name : 'NOME NÃO INFORMADO'}
+                                    defaultValue={props.patient.name ? props.patient.name : ''}
                                     style={{ textTransform: 'uppercase' }}
                                     disabled={edit ? false : true}
                                 />
