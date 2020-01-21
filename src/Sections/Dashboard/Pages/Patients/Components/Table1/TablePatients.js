@@ -148,7 +148,7 @@ const TablePatients = (props) => {
                                 </td>
                                 <td style={{ padding: '10px', textAlign: 'center' }}>
                                     <div style={{ display: 'grid' }}>
-                                        <b>{item.birth && item.birth.date ? format(new Date(item.birth.date), 'MM/dd/yyyy') : ''}</b>
+                                        <b>{item.birth && item.birth.date ? format(new Date(item.birth.date), 'dd/MM/yyyy') : ''}</b>
                                         <span className="text-muted"> {item.birth && item.birth.date ? `${new Date().getFullYear() - format(new Date(item.birth.date), 'yyyy')} anos` : 'Nascimento não informado'}</span>
                                     </div>
                                 </td>
