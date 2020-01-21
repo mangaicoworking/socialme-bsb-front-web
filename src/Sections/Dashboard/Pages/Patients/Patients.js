@@ -9,6 +9,8 @@ import PaginationInformation from './Components/PaginationInformation';
 import { LoaderDefault } from './../../../../Components/Loader/LoaderDefault';
 //CONTEXTS
 import { AxiosContext } from './../../../../Contexts/AxiosContext';
+//SERVICES
+import { dataBrasileiraMask } from './../../../../Services/masks';
 
 const BrasiliaManagerDashboardPatients = () => {
     //CONTEXTS
@@ -39,7 +41,7 @@ const BrasiliaManagerDashboardPatients = () => {
         motherName: '',
         cpf: '',
         cns: '',
-        birthDate: '',
+        birth: '',
         prontuarioMV: '',
         prontiarioSES: ''
     })
@@ -48,26 +50,39 @@ const BrasiliaManagerDashboardPatients = () => {
         motherName: '',
         cpf: '',
         cns: '',
-        birthDate: '',
+        birth: '',
         prontuarioMV: '',
         prontiarioSES: ''
     })
 
     const SubmitFilters = () => {
         setGoAPI(true);
-        setFiltersSubmit({
-            name: filters.name,
-            motherName: filters.motherName,
-            cpf: filters.cpf,
-            cns: filters.cns,
-            birth: filters.birthDate,
-            prontuarioMV: filters.prontuarioMV,
-            prontiarioSES: filters.prontiarioSES
-        })
+        if(filters.birth){
+            let brokenDate = filters.birth.split("/");
+            setFiltersSubmit({
+                name: filters.name,
+                motherName: filters.motherName,
+                cpf: filters.cpf,
+                cns: filters.cns,
+                birth: `${brokenDate[2]}-${brokenDate[1]}-${brokenDate[0]}`,
+                prontuarioMV: filters.prontuarioMV,
+                prontiarioSES: filters.prontiarioSES
+            })
+        }else{
+            setFiltersSubmit({
+                name: filters.name,
+                motherName: filters.motherName,
+                cpf: filters.cpf,
+                cns: filters.cns,
+                birth: filters.birth,
+                prontuarioMV: filters.prontuarioMV,
+                prontiarioSES: filters.prontiarioSES
+            })
+        }
         setPagingParametersActions({
             ...pagingParametersActions,
             currentPage: 1,
-        })
+        }) 
     }
 
     useEffect(() => {
@@ -88,7 +103,7 @@ const BrasiliaManagerDashboardPatients = () => {
                         mother: filtersSubmit.motherName,
                         cpf: filtersSubmit.cpf,
                         cns: filtersSubmit.cns,
-                        birth: filtersSubmit.birthDate,
+                        birth: filtersSubmit.birth,
                         mv: filtersSubmit.prontuarioMV,
                         ses: filtersSubmit.prontiarioSES
                     }
@@ -118,7 +133,7 @@ const BrasiliaManagerDashboardPatients = () => {
                 }
             });
         }
-    }, [CallForSomeApi, pagingParametersActions.limit, pagingParametersActions.currentPage, filtersSubmit.name, filtersSubmit.motherName, filtersSubmit.cpf, filtersSubmit.cns, filtersSubmit.birthDate, filtersSubmit.prontuarioMV, filtersSubmit.prontiarioSES, goAPI]);
+    }, [CallForSomeApi, pagingParametersActions.limit, pagingParametersActions.currentPage, filtersSubmit.name, filtersSubmit.motherName, filtersSubmit.cpf, filtersSubmit.cns, filtersSubmit.birth, filtersSubmit.prontuarioMV, filtersSubmit.prontiarioSES, goAPI]);
 
     const HandleChangePagingParametersActions = name => event => {
         setPagingParametersActions({ ...pagingParametersActions, [name]: parseInt(event.target.value) });
@@ -127,7 +142,12 @@ const BrasiliaManagerDashboardPatients = () => {
         setPagingParametersActions({ ...pagingParametersActions, currentPage: newPage });
     }
     const HandleChangeFilters = name => event => {
-        setFilters({ ...filters, [name]: event.target.value });
+        switch(name){
+            case 'birth':
+                return setFilters({ ...filters, [name]: dataBrasileiraMask(event.target.value) });
+            default:
+                return setFilters({ ...filters, [name]: event.target.value });
+        }
     }
     const ToogleFilters = () => {
         setOpenFilters(!openFilters)
@@ -164,7 +184,7 @@ const BrasiliaManagerDashboardPatients = () => {
 
                         <div className="row">
                             <div style={{ overflow: 'auto' }} className="col-md-12">
-                                <Table1 data={people ? people : ''} filtersSubmit={filtersSubmit} />
+                                <Table1 data={people ? people : ''} filtersSubmit={filtersSubmit} filters={filters} />
                             </div>
                         </div>
 
@@ -228,7 +248,6 @@ const BrasiliaManagerDashboardPatients = () => {
                                                 :
                                                 <span className="btn-inner--icon"><i className="fas fa-angle-down"></i></span>
                                             }
-
                                             <span className="btn-inner--text">Filtros</span>
                                         </button>
                                     </div>
@@ -244,7 +263,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('name')}
                                                             value={filters.name}
                                                             className="form-control"
-                                                            placeholder="Nome Completo"
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />
@@ -259,7 +278,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('motherName')}
                                                             value={filters.motherName}
                                                             className="form-control"
-                                                            placeholder="Nome da Mãe"
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />
@@ -274,7 +293,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('cpf')}
                                                             value={filters.cpf}
                                                             className="form-control"
-                                                            placeholder="000.000.000-00"
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />
@@ -289,7 +308,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('cns')}
                                                             value={filters.cns}
                                                             className="form-control"
-                                                            placeholder="833545645800004"
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />
@@ -304,7 +323,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('birth')}
                                                             value={filters.birth}
                                                             className="form-control"
-                                                            placeholder="00/00/00"
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />
@@ -321,7 +340,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('prontuarioMV')}
                                                             value={filters.prontuarioMV}
                                                             className="form-control"
-                                                            placeholder="Ex."
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />
@@ -336,7 +355,7 @@ const BrasiliaManagerDashboardPatients = () => {
                                                             onChange={HandleChangeFilters('prontuarioSES')}
                                                             value={filters.prontuarioSES}
                                                             className="form-control"
-                                                            placeholder="Ex."
+                                                            placeholder=""
                                                             type="text"
                                                             style={{ textTransform: 'uppercase', height: '30px', padding: '0px 5px' }}
                                                         />

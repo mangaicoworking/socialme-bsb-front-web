@@ -1,7 +1,7 @@
 import React from 'react';
 //LIBRARYS
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import Highlighter from "react-highlight-words";
 //SERVICES
 //import { cpfMaskContinuos } from './../../../../../../Services/masks';
@@ -148,7 +148,18 @@ const TablePatients = (props) => {
                                 </td>
                                 <td style={{ padding: '10px', textAlign: 'center' }}>
                                     <div style={{ display: 'grid' }}>
-                                        <b>{item.birth && item.birth.date ? format(new Date(item.birth.date), 'dd/MM/yyyy') : ''}</b>
+                                        {item.birth && item.birth.date ?
+                                            <b>
+                                                <Highlighter
+                                                    highlightClassName="HighlightSocialMe"
+                                                    searchWords={[props.filters.birth]}
+                                                    textToHighlight={format(addDays(new Date(item.birth.date), 1), 'dd/MM/yyyy')}
+                                                />
+                                            </b>
+             
+                                        :
+                                            'Nascimento não informado'
+                                        }
                                         <span className="text-muted"> {item.birth && item.birth.date ? `${new Date().getFullYear() - format(new Date(item.birth.date), 'yyyy')} anos` : 'Nascimento não informado'}</span>
                                     </div>
                                 </td>
