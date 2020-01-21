@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './BasicInformation.css';
 //LIBRARYS
-import { format } from 'date-fns'
+import { format, addDays } from 'date-fns'
 //OWN COMPONENTS
 //import { InputText } from './Components/InputText';
 //import { Select } from './Components/Select';
@@ -152,7 +152,8 @@ const BasicInformationView = (props) => {
                                 type={'text'}
                                 defaultValue={
                                     props.patient.birth && props.patient.birth.date ?
-                                        format(new Date(props.patient.birth.date), 'dd/MM/yyyy')
+                                        format(addDays(new Date(props.patient.birth.date), 1), 'dd/MM/yyyy')
+                                        
                                         :
                                         ''}
                                 style={{ textTransform: 'uppercase' }}
