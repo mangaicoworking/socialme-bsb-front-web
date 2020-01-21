@@ -102,7 +102,7 @@ const Pagination = (props) => {
                         <></>
                     }
 
-                    {props.parameters.currentPage + 2 < props.parameters.totalPages ?
+                    {props.parameters.currentPage + 2 <= props.parameters.totalPages ?
                         <li className="page-item">
                             <button style={{ margin: '0px 3px' }} onClick={() => props.SetNewPage(props.parameters.currentPage + 2)} type="button" className="btn btn-icon-only btn-secondary rounded-circle">
                                 {props.parameters.currentPage + 2}

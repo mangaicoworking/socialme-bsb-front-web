@@ -57,7 +57,7 @@ const BrasiliaManagerDashboardPatients = () => {
         setGoAPI(true);
         setFiltersSubmit({
             name: filters.name,
-            mother: filters.motherName,
+            motherName: filters.motherName,
             cpf: filters.cpf,
             cns: filters.cns,
             birth: filters.birthDate,
