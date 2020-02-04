@@ -9,6 +9,7 @@ import { DashboardPatients } from './Sections/Dashboard/Pages/Patients';
 import { DashboardAlerts } from './Sections/Dashboard/Pages/Alerts';
 
 import { PatientPage } from './Sections/PatientPage';
+import { Socket } from './Sections/Socket';
 
 const routes = [
   {
@@ -38,7 +39,13 @@ const routes = [
   },
   {
     path: "/paciente/:idPatient",
+    protected: true,
     component: PatientPage
+  },
+  {
+    path: "/socket",
+    protected: true,
+    component: Socket
   },
 ];
 

@@ -32,7 +32,7 @@ const PatientPageView = (props) => {
         } else {
             if (sex === 'M') {
                 if (age <= 12) {
-                    let random = Math.floor(Math.random() * 9) + 1;
+                    let random = Math.floor(Math.random() * 6) + 1;
                     return (`/assets/img/people/HomemCrianca/${random}.png`);
                 }
                 if (age > 12 && age < 30) {
@@ -40,7 +40,7 @@ const PatientPageView = (props) => {
                     return (`/assets/img/people/HomemJovem/${random}.png`);
                 }
                 if (age >= 30 && age < 60) {
-                    let random = Math.floor(Math.random() * 5) + 1;
+                    let random = Math.floor(Math.random() * 4) + 1;
                     return (`/assets/img/people/HomemAdulto/${random}.png`);
                 }
                 if (age >= 60) {
@@ -49,15 +49,15 @@ const PatientPageView = (props) => {
                 }
             } else {
                 if (age <= 12) {
-                    let random = Math.floor(Math.random() * 4) + 1;
+                    let random = Math.floor(Math.random() * 2) + 1;
                     return (`/assets/img/people/MulherCrianca/${random}.png`);
                 }
                 if (age > 12 && age < 30) {
-                    let random = Math.floor(Math.random() * 11) + 1;
+                    let random = Math.floor(Math.random() * 8) + 1;
                     return (`/assets/img/people/MulherJovem/${random}.png`);
                 }
                 if (age >= 30 && age < 60) {
-                    let random = Math.floor(Math.random() * 12) + 1;
+                    let random = Math.floor(Math.random() * 8) + 1;
                     return (`/assets/img/people/MulherAdulto/${random}.png`);
                 }
                 if (age >= 60) {

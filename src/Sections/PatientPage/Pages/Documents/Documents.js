@@ -11,7 +11,6 @@ const Documents = (props) => {
                     <img src={'/assets/img/figures/ImageProfileDocuments.svg'} alt="description" />
                     <div className="BasicInformation-TitleContainer">
                         <h1 className="mb-0">Documentos</h1>
-                        <span>Curabitur magna ante, vehicula quis dui vel, feugiat lacinia diam.</span>
                     </div>
 
                 </div>

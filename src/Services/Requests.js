@@ -2,7 +2,7 @@
 //const socialMe = 'http://192.168.2.16:3000/ergCNTis';
 //const socialMe = 'https://socialme-api.herokuapp.com/ergCNTis';
 const socialMeBSB = 'https://oracleapibsb.socialme.com.br/mRG1SOsr1lTQh1PxcFXu';
-//const socialMeBSB = 'http://192.168.2.16:3000/v1/';
+//const socialMeBSB = 'http://192.168.2.16:3000/mRG1SOsr1lTQh1PxcFXu/';
 
 const Requests = {
     Login: {
@@ -40,11 +40,21 @@ const Requests = {
     },
     ShowPatient: {
         baseURL: socialMeBSB,
+        url: '/people',
         method: 'get',
         timeout: '50000',
         responses: [
             
         ]        
+    },
+    ListUsers: {
+        baseURL: socialMeBSB,
+        url: '/users',
+        method: 'post',
+        timeout: '50000',
+        responses: [
+            
+        ]   
     }
 }
  

@@ -11,7 +11,6 @@ const Adresses = (props) => {
             <img src={'/assets/img/figures/ImageProfileAdresses.svg'} alt="description" />
             <div className="BasicInformation-TitleContainer">
               <h1 className="mb-0">Endereços</h1>
-              <span>Curabitur magna ante, vehicula quis dui vel, feugiat lacinia diam.</span>
             </div>
           </div>
         </div>

@@ -18,7 +18,6 @@ const BasicInformationView = (props) => {
                     <img src={'/assets/img/figures/ImageProfileData.svg'} alt="description" />
                     <div className="BasicInformation-TitleContainer">
                         <h1 className="mb-0">Informações Básicas</h1>
-                        <span>Curabitur magna ante, vehicula quis dui vel, feugiat lacinia diam.</span>
                     </div>
                 </div>
             </div>
