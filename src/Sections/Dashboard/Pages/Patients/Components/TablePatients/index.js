@@ -1,0 +1,1 @@
+export { default as TablePatients } from './TablePatients';

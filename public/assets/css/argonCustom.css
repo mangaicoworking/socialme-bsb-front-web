@@ -76,6 +76,10 @@
 }
 .sidebarMenuItemActive{
     background-color: var(--backgroundColor);
+    border-left: 5px solid var(--primary);
+}
+.sidebarMenuItemNotActive{
+    border-left: 5px solid var(--white);
 }
 a {
     color: var(--primary);
@@ -112,4 +116,10 @@ a:hover {
 .HighlightSocialMe{
     background-color: #525f7f;
     color: var(--white);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    border-color: var(--primaryDark);
+    background-color: var(--primary);
 }

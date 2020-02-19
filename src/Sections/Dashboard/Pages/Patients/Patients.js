@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
+import './Patients.css';
 //import axios from 'axios';
 //OWN COMPONENTS
 import { Header } from './Components/Header';
-import Table1 from './Components/Table1/TablePatients';
+import { TablePatients } from './Components/TablePatients';
 import Pagination from './Components/Pagination';
 import PaginationInformation from './Components/PaginationInformation';
 //COMPONENTS
@@ -57,7 +58,7 @@ const BrasiliaManagerDashboardPatients = () => {
 
     const SubmitFilters = () => {
         setGoAPI(true);
-        if(filters.birth){
+        if (filters.birth) {
             let brokenDate = filters.birth.split("/");
             setFiltersSubmit({
                 name: filters.name,
@@ -68,7 +69,7 @@ const BrasiliaManagerDashboardPatients = () => {
                 prontuarioMV: filters.prontuarioMV,
                 prontiarioSES: filters.prontiarioSES
             })
-        }else{
+        } else {
             setFiltersSubmit({
                 name: filters.name,
                 motherName: filters.motherName,
@@ -82,7 +83,7 @@ const BrasiliaManagerDashboardPatients = () => {
         setPagingParametersActions({
             ...pagingParametersActions,
             currentPage: 1,
-        }) 
+        })
     }
 
     useEffect(() => {
@@ -111,6 +112,7 @@ const BrasiliaManagerDashboardPatients = () => {
             }
             CallForSomeApi((params), (axiosResponse) => {
                 console.log(axiosResponse);
+                //console.log(axiosResponse.body.PeopleList.length);
                 if (axiosResponse.body) {
                     if (axiosResponse.body.PeopleList) {
                         setPeople(axiosResponse.body.PeopleList);
@@ -142,7 +144,7 @@ const BrasiliaManagerDashboardPatients = () => {
         setPagingParametersActions({ ...pagingParametersActions, currentPage: newPage });
     }
     const HandleChangeFilters = name => event => {
-        switch(name){
+        switch (name) {
             case 'birth':
                 return setFilters({ ...filters, [name]: dataBrasileiraMask(event.target.value) });
             default:
@@ -168,39 +170,48 @@ const BrasiliaManagerDashboardPatients = () => {
             )
         } else {
             if (render && goAPI) {
-                return (
-                    <>
-
-                        <br />
-                        <div className="row" style={{ alignItems: 'center' }}>
-                            <div className="col-6">
-                                <PaginationInformation parameters={pagingParameters} />
-                            </div>
-                            <div className="col-6 text-right">
-                                <Pagination parameters={pagingParameters} SetNewPage={SetNewPage} />
+                if (people.length === 0) {
+                    return (
+                        <div className="row text-center" style={{ alignItems: 'center' }}>
+                            <div className="col-md-12">
+                                <p className="text-muted mb-0">Nenhum registro encontrado</p>
                             </div>
                         </div>
-                        <br />
-
-                        <div className="row">
-                            <div style={{ overflow: 'auto' }} className="col-md-12">
-                                <Table1 data={people ? people : ''} filtersSubmit={filtersSubmit} filters={filters} />
+                    )
+                } else {
+                    return (
+                        <>
+                            <br />
+                            <div className="row" style={{ alignItems: 'center' }}>
+                                <div className="col-6">
+                                    <PaginationInformation parameters={pagingParameters} />
+                                </div>
+                                <div className="col-6 text-right">
+                                    <Pagination parameters={pagingParameters} SetNewPage={SetNewPage} />
+                                </div>
                             </div>
-                        </div>
+                            <br />
 
-                        <br />
-                        <div className="row" style={{ alignItems: 'center' }}>
-                            <div className="col-6">
-                                <PaginationInformation parameters={pagingParameters} />
+                            <div className="row">
+                                <div style={{ overflow: 'auto' }} className="col-md-12">
+                                    <TablePatients data={people ? people : ''} filtersSubmit={filtersSubmit} filters={filters} />
+                                </div>
                             </div>
-                            <div className="col-6 text-right">
-                                <Pagination parameters={pagingParameters} SetNewPage={SetNewPage} />
+
+                            <br />
+                            <div className="row" style={{ alignItems: 'center' }}>
+                                <div className="col-6">
+                                    <PaginationInformation parameters={pagingParameters} />
+                                </div>
+                                <div className="col-6 text-right">
+                                    <Pagination parameters={pagingParameters} SetNewPage={SetNewPage} />
+                                </div>
                             </div>
-                        </div>
 
-                    </>
+                        </>
 
-                )
+                    )
+                }
             }
         }
     }
@@ -212,48 +223,35 @@ const BrasiliaManagerDashboardPatients = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <div className="card-header border-0">
+                            <div style={{ paddingBottom: '0px' }} className="card-header border-0">
                                 <div className="row align-items-center">
                                     <div className="col-lg-9">
-                                        <h3 className="mb-0">Pacientes</h3>
+                                        {/* 
+                                        <h3 className="mb-0">Consultar Pacientes</h3>
+                                        */}
+                                    </div>
+                                    <div className="col-lg-12">
+                                        {goAPI ?
+                                            <button onClick={() => ToogleFilters()} className="btn btn-icon btn-primary btn-sm" type="button">
+                                                {openFilters ?
+                                                    <span className="btn-inner--icon"><i className="fas fa-angle-up"></i></span>
+                                                    :
+                                                    <span className="btn-inner--icon"><i className="fas fa-angle-down"></i></span>
+                                                }
+                                                <span className="btn-inner--text">Filtros</span>
+                                            </button>
+                                            :
+                                            <button className="btn btn-icon btn-primary btn-sm" type="button" disabled>
+                                                <span className="btn-inner--icon"><i className="fas fa-angle-up"></i></span>
+                                                <span className="btn-inner--text">Filtros</span>
+                                            </button>
+                                        }
                                     </div>
                                 </div>
                             </div>{/* /card-header */}
-                            <div className="card-body">
-
-                                <div className="row">
-                                    <div className="col-6">
-                                        {goAPI ?
-                                            <div style={{ display: 'flex' }}>
-                                                <small>Mostrar</small>
-                                                <select value={pagingParametersActions.limit} onChange={HandleChangePagingParametersActions('limit')} style={{ width: '50px', padding: '0px', height: '20px', margin: '0px 10px' }} className="form-control">
-                                                    <option value={10} >10</option>
-                                                    <option value={25} >25</option>
-                                                    <option value={50} >50</option>
-                                                    <option value={75} >75</option>
-                                                    <option value={100} >100</option>
-                                                </select>
-                                                <small>registros por página</small>
-                                            </div>
-                                            :
-                                            <></>
-                                        }
-
-
-                                    </div>
-                                    <div className="col-6 text-right">
-                                        <button onClick={() => ToogleFilters()} className="btn btn-icon btn-primary btn-sm" type="button">
-                                            {openFilters ?
-                                                <span className="btn-inner--icon"><i className="fas fa-angle-up"></i></span>
-                                                :
-                                                <span className="btn-inner--icon"><i className="fas fa-angle-down"></i></span>
-                                            }
-                                            <span className="btn-inner--text">Filtros</span>
-                                        </button>
-                                    </div>
-                                </div>
+                            <div style={{ paddingTop: '0px' }} className="card-body">
                                 {openFilters ?
-                                    <div style={{ backgroundColor: 'var(--backgroundColor)', padding: '20px', margin: '20px 0px' }}>
+                                    <div className="PatientsPage-FiltersContainer">
                                         <div className="row">
                                             <div className="col-md-3">
                                                 <div className="form-group">
@@ -362,11 +360,41 @@ const BrasiliaManagerDashboardPatients = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div style={{ marginLeft: 'auto' }} className="col-md-2">
-                                                <button onClick={() => SubmitFilters()} className="btn btn-icon btn-primary btn-sm" type="button">
-                                                    <span className="btn-inner--icon"><i className="fas fa-search"></i></span>
-                                                    <span className="btn-inner--text">Filtrar</span>
-                                                </button>
+                                            <div style={{ display: 'flex', alignItems: 'center' }} className="col-md-8">
+                                                <div style={{ display: 'flex', marginLeft: 'auto' }}>
+                                                    <small>Mostrar</small>
+                                                    <select value={pagingParametersActions.limit} onChange={HandleChangePagingParametersActions('limit')} style={{ width: '50px', padding: '0px', height: '20px', margin: '0px 10px' }} className="form-control">
+                                                        <option value={10} >10</option>
+                                                        <option value={25} >25</option>
+                                                        <option value={50} >50</option>
+                                                        <option value={75} >75</option>
+                                                        <option value={100} >100</option>
+                                                    </select>
+                                                    <small>registros por página</small>
+                                                </div>
+                                                <div style={{ marginLeft: '20px' }}>
+                                                    {
+                                                        filters.name !== filtersSubmit.name ||
+                                                            filters.motherName !== filtersSubmit.motherName ||
+                                                            filters.cpf !== filtersSubmit.cpf ||
+                                                            filters.cns !== filtersSubmit.cns ||
+                                                            filters.birth !== filtersSubmit.birth ||
+                                                            filters.prontuarioMV !== filtersSubmit.prontuarioMV ||
+                                                            filters.prontiarioSES !== filtersSubmit.prontiarioSES ?
+
+                                                            <button onClick={() => SubmitFilters()} className="btn btn-icon btn-primary btn-sm" type="button">
+                                                                <span className="btn-inner--icon"><i className="fas fa-search"></i></span>
+                                                                <span className="btn-inner--text">Filtrar</span>
+                                                            </button>
+
+                                                            :
+
+                                                            <button className="btn btn-icon btn-primary btn-sm" type="button" disabled>
+                                                                <span className="btn-inner--icon"><i className="fas fa-search"></i></span>
+                                                                <span className="btn-inner--text">Filtrar</span>
+                                                            </button>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

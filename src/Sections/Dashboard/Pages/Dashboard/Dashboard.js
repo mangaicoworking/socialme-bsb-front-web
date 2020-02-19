@@ -2,6 +2,7 @@ import React from 'react';
 //OWN COMPONENTS
 import { Header } from './Components/Header';
 import Table1 from './Components/Table1';
+import TableRegistration from './Components/TableRegistration';
 import Graph1 from './Components/Graph1';
 import Table2 from './Components/Table2';
 import Table3 from './Components/Table3';
@@ -35,9 +36,8 @@ const BrasiliaManagerDashboard = () => {
                                 <div className="tab-content tab-space">
                                     <div className="tab-pane fade active show" id="link11">
                                         <div className="row">
-                                            <div className="col-md-4"></div>
-                                            <div className="col-md-4">
-                                                <Table1 />
+                                            <div className="col-md-12">
+                                                <TableRegistration />
                                             </div>
                                         </div>
                                         <br/><br/>

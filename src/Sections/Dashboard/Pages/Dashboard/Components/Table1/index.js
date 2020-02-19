@@ -30,8 +30,8 @@ const Table1 = () => {
                     <td style={{ borderTop: 'none' }}> 
                         <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userProntuario.jpg" style={{ width: '20px', height: '20px' }} /> 
                     </td>
-                    <td style={{ borderTop: 'none', textAlign: 'left' }}>Prontuário Cidadão</td>
-                    <td style={{ borderTop: 'none' }}>5.406.879</td>
+                    <td style={{ borderTop: 'none', textAlign: 'left' }}>Indivíduos únicos</td>
+                    <td style={{ borderTop: 'none' }}>5.406</td>
                 </tr>
             </tbody>
             <tfoot>

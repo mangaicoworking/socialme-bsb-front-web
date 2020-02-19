@@ -14,7 +14,7 @@ const Login = () => {
     const { user, populateAuth } = useContext(AuthContext);
     //VARIABLES
     const [mainDocument, setMainDocument] = useState('30678207000180');
-    const [password, setPassword] = useState('BSB_@Admin');
+    const [password, setPassword] = useState('12345');
     const [consultingAPI, setConsultingAPI] = useState(false);
     const [error, setError] = useState(false);
     //MAIN DOCUMENT
@@ -156,14 +156,15 @@ const Login = () => {
                                                 style={{
                                                     height: '43px',
                                                     opacity: '0.8',
-                                                    cursor: 'default'
+                                                    cursor: 'default',
+                                                    boxShadow: 'none'
                                                 }}
                                             >
                                                 <LoaderDefault
                                                     type={'Simple-1'}
                                                     border={'3px solid white'}
-                                                    width={'1.2em'}
-                                                    height={'1.2em'}
+                                                    width={'1em'}
+                                                    height={'1em'}
                                                     margin={'2px 0px 0px 0px'}
                                                 />
                                             </button>

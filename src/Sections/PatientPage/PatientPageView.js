@@ -97,7 +97,7 @@ const PatientPageView = (props) => {
                                         <a className="nav-link active" data-toggle="tab" href="#basicInformation" role="tablist">
                                             <i className="ni far fa-user-circle mr-2"></i>
                                             Informações Básicas
-                                    </a>
+                                        </a>
                                     </li>
                                     <li className="nav-item text-center">
                                         <a className="nav-link" data-toggle="tab" href="#documents" role="tablist">
