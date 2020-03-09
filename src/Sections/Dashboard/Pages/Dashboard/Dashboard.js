@@ -1,7 +1,6 @@
 import React from 'react';
 //OWN COMPONENTS
 import { Header } from './Components/Header';
-import Table1 from './Components/Table1';
 import TableRegistration from './Components/TableRegistration';
 import Graph1 from './Components/Graph1';
 import Table2 from './Components/Table2';

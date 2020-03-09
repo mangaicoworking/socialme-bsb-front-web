@@ -55,6 +55,15 @@ const Requests = {
         responses: [
             
         ]   
+    },
+    GetTotalRecords: {
+        baseURL: socialMeBSB,
+        url: '/people/count',
+        method: 'post',
+        timeout: '50000',
+        responses: [
+            
+        ]   
     }
 }
  

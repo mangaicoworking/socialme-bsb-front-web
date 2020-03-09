@@ -8,7 +8,7 @@ const Documents = (props) => {
         <div className="card">
             <div className="card-header bg-transparent">
                 <div className="BasicInformation-Header">
-                    <img src={'/assets/img/figures/ImageProfileDocuments.svg'} alt="description" />
+                  {/*   <img src={'/assets/img/figures/ImageProfileDocuments.svg'} alt="description" /> */}
                     <div className="BasicInformation-TitleContainer">
                         <h1 className="mb-0">Documentos</h1>
                     </div>

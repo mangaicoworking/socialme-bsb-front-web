@@ -10,7 +10,7 @@ const Records = () => {
     <div className="card">
       <div className="card-header bg-transparent">
         <div className="BasicInformation-Header">
-          <img src={'/assets/img/figures/ImageProfileTimeline.svg'} alt="description" />
+        {/* <img src={'/assets/img/figures/ImageProfileTimeline.svg'} alt="description" /> */}
           <div className="BasicInformation-TitleContainer">
             <h1 className="mb-0">Registros</h1>
           </div>

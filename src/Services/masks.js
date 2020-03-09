@@ -77,3 +77,12 @@ export const cnsMask = value => {
     .replace(/(-\d{2})\d+?$/, '$1') // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
 }
 // 000 0000 0000 0000
+
+export const normalNumber = (value) => {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d+)(\d{3})/, '$1.$2')
+    .replace(/(\d+)(\d{3})/, '$1.$2')
+    .replace(/(\d+)(\d{3})/, '$1.$2')
+}
+//  000.000.000.000.000

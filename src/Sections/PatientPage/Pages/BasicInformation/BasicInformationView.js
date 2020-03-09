@@ -15,7 +15,7 @@ const BasicInformationView = (props) => {
         <div className="card Profile-BasicInformation-Card">
             <div className="card-header bg-transparent">
                 <div className="BasicInformation-Header">
-                    <img src={'/assets/img/figures/ImageProfileData.svg'} alt="description" />
+                    {/* <img src={'/assets/img/figures/ImageProfileData.svg'} alt="description" /> */}
                     <div className="BasicInformation-TitleContainer">
                         <h1 className="mb-0">Informações Básicas</h1>
                     </div>
