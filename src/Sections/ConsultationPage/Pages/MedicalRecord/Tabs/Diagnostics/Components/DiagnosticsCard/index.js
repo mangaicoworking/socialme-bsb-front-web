@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AttendanceCard = () => {
+const AttendanceCard = (props) => {
     return (
-        <div className="card MedicalRecord-CardSimple-1">
+        <div className="card MedicalRecord-CardSimple-2">
             <div className="card-header">
                 <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
                     <Link style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }} to="/consulta/123" target="_blank">
                         <i className="fas fa-file-medical"></i>
-                        <p>EM-22349017 <span>(1399201)</span></p>
+                        <p>EM-22349017 <span> - CID - F</span></p>
                     </Link>
+                </div>
+                <div style={{ minHeight: '44px', display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+                    <h4>{props.title}</h4>
                 </div>
             </div>
             <div className="card-body">

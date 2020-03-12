@@ -3,22 +3,6 @@ import PatientPageView from './PatientPageView';
 //CONTEXTS
 import { AxiosContext } from './../../Contexts/AxiosContext';
 
-const patientFake = {
-    birth: '1993-06-15',
-    phones: [
-        {
-            description: 'fixo',
-            number: '9536268426'
-        }
-    ],
-    addresses: [
-        {
-            street: 'Tota Terêncio',
-            country: 'Brasil'
-        }
-    ]
-}
-
 const PatientPage = () => {
     //CONTEXTS
     const { CallForSomeApi } = useContext(AxiosContext);
@@ -44,9 +28,9 @@ const PatientPage = () => {
 
     return (
         <PatientPageView
-            render={true}
-            load={false}
-            patient={patientFake}
+            render={render}
+            load={load}
+            patient={patient}
         />
     );
 }

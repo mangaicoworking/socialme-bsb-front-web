@@ -40,12 +40,12 @@ const routes = [
   },
   {
     path: "/paciente/:idPatient",
-    protected: false,
+    protected: true,
     component: PatientPage
   },
   {
     path: "/consulta/:idConsultation",
-    protected: false,
+    protected: true,
     component: ConsultationPage
   },
   {

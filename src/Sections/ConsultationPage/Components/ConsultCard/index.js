@@ -1,0 +1,1 @@
+export { default as ConsultCard } from './ConsultCard';

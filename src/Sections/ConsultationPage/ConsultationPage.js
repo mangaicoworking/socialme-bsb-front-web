@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 import ConsultationPageView from './ConsultationPageView';
 //CONTEXTS
-import { AxiosContext } from './../../Contexts/AxiosContext';
+//import { AxiosContext } from './../../Contexts/AxiosContext';
 
 const patientFake = {
     birth: '1993-06-15',
@@ -21,12 +21,13 @@ const patientFake = {
 
 const ConsultationPage = () => {
     //CONTEXTS
-    const { CallForSomeApi } = useContext(AxiosContext);
+    //const { CallForSomeApi } = useContext(AxiosContext);
     //VARIABLES
-    const [render, setRender] = useState(false);
-    const [load, setLoad] = useState(true);
-    const [patient, setPatient] = useState();
+    //const [render, setRender] = useState(false);
+    //const [load, setLoad] = useState(true);
+    //const [patient, setPatient] = useState();
 
+    /*
     useEffect(() => {
         setLoad(true);
         let iDPatient = window.location.pathname.split('/')[2];
@@ -41,6 +42,7 @@ const ConsultationPage = () => {
             setRender(true);
         });
     }, [CallForSomeApi]);
+    */
 
     return (
         <ConsultationPageView

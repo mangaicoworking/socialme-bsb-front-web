@@ -138,7 +138,7 @@ const PatientPageView = (props) => {
                         {/* COL-MD-9 */}
                         <div className="col-md-9 PersonalDashboard-RightEffect">
                             <div className="tab-content">
-                                <div className="tab-pane fade fade " id="basicInformation">
+                                <div className="tab-pane fade active show" id="basicInformation">
                                     <BasicInformation patient={props.patient} />
                                 </div>
                                 <div className="tab-pane fade" id="documents">
@@ -150,7 +150,7 @@ const PatientPageView = (props) => {
                                 <div className="tab-pane fade" id="registros">
                                     <Records />
                                 </div>
-                                <div className="tab-pane fade active show" id="medicalRecord">
+                                <div className="tab-pane fade" id="medicalRecord">
                                     <MedicalRecord />
                                 </div>
                                 {/* 
