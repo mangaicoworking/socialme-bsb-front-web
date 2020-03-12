@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import PatientPageView from './PatientPageView';
+import ConsultationPageView from './ConsultationPageView';
 //CONTEXTS
 import { AxiosContext } from './../../Contexts/AxiosContext';
 
@@ -19,7 +19,7 @@ const patientFake = {
     ]
 }
 
-const PatientPage = () => {
+const ConsultationPage = () => {
     //CONTEXTS
     const { CallForSomeApi } = useContext(AxiosContext);
     //VARIABLES
@@ -43,7 +43,7 @@ const PatientPage = () => {
     }, [CallForSomeApi]);
 
     return (
-        <PatientPageView
+        <ConsultationPageView
             render={true}
             load={false}
             patient={patientFake}
@@ -51,4 +51,4 @@ const PatientPage = () => {
     );
 }
 
-export default PatientPage;
+export default ConsultationPage;

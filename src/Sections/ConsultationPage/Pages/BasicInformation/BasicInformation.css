@@ -1,0 +1,69 @@
+.BasicInformation-Header{
+    display: flex;
+}
+.BasicInformation-Header img{
+    height: 100px;
+}
+.BasicInformation-TitleContainer{
+    height: 20px;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    padding-left: 10px;
+}
+/* INPUTS */
+.Profile-BasicInformation-Card .form-group{
+    margin-bottom: 10px;
+}
+.Profile-BasicInformation-Card label{
+    margin-bottom: 0px;
+}
+.Profile-BasicInformation-Card .form-control-label {
+    font-size: .800rem;
+    font-weight: 600;
+    color: #525f7f;
+}
+.Profile-BasicInformation-Card .form-control {
+    font-size: .750rem;
+    height: calc(1em + 1rem);
+    transition: all .15s ease-in-out;
+    padding: 0px 0px 0px 10px;
+}
+.Profile-BasicInformation-Card .input-group-text {
+    padding: 0px 5px 0px 5px;
+}
+.Profile-BasicInformation-Card .valid-feedback {
+    font-size: 70%;
+    margin-top: 0px;
+}
+.Profile-BasicInformation-Card .invalid-feedback {
+    font-size: 70%;
+    margin-top: 0px;
+}
+/* ICON INPUT ANIMATION */
+.Profile-BasicInformation-InputIcon-Error{
+    border: 1px solid var(--danger);
+}
+.Profile-BasicInformation-InputIcon-Success{
+    border: 1px solid var(--success);
+}
+.Profile-BasicInformation-InputIconAnimation-ConsultingApi{
+    -webkit-animation: rotation 2s infinite linear;
+    animation: rotation 2s infinite linear;
+}
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+@keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}

@@ -1,0 +1,232 @@
+.MedicalRecord-Card .card-body .nav-wrapper .nav-pills .nav-item {
+    margin-bottom: 10px;
+}
+
+.MedicalRecord-Card .card-body .nav-wrapper .nav-pills .nav-item a {
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    padding-left: 10px;
+}
+
+.MedicalRecord-Card .card-body .nav-wrapper .nav-pills .nav-item a:hover {
+    margin-left: 10px;
+    background-color: var(--white);
+}
+
+.MedicalRecord-Card .card-body .nav-wrapper .nav-pills .nav-item a i {
+    padding-top: 2px;
+}
+
+.MedicalRecord-Card-BadgeContainer {
+    background-color: var(--primaryDark);
+    margin-right: 10px;
+    text-align: center;
+    color: var(--white);
+}
+
+/* ACTIVE */
+
+.MedicalRecord-Card-ActiveTab {
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+}
+
+.MedicalRecord-Card-ActiveTab .MedicalRecord-Card-BadgeContainer {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+.MedicalRecord-Card-ActiveTab:hover {
+    margin-left: 0px !important;
+}
+
+/* CARD SIMPLE - 1 */
+.MedicalRecord-CardSimple-1 {
+    background-color: var(--secondary);
+    border: 1px solid var(--borderColor);
+}
+.MedicalRecord-CardSimple-1 .card-header {
+    display: flex;
+    padding: 5px;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-1 .card-header i{
+    margin-right: 5px;
+    font-size: 10pt;
+}
+.MedicalRecord-CardSimple-1 .card-header p{
+    font-size: 10pt;
+    margin: 0px;
+    font-weight: bold;
+}
+.MedicalRecord-CardSimple-1 .card-header span{
+    font-size: 8pt;
+}
+.MedicalRecord-CardSimple-1 .card-body{
+    padding: 5px;
+}
+.MedicalRecord-CardSimple-1 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+}
+.MedicalRecord-CardSimple-1 .card-body i{
+    margin-right: 5px;
+    font-size: 10pt;
+}
+.MedicalRecord-CardSimple-1 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+}
+/* CARD SIMPLE - 2 */
+.MedicalRecord-CardSimple-2 {
+    background-color: var(--secondary);
+    border: 1px solid var(--borderColor);
+}
+.MedicalRecord-CardSimple-2 .card-header {
+    padding: 5px;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-2 .card-header i{
+    margin-right: 5px;
+    font-size: 8pt;
+}
+.MedicalRecord-CardSimple-2 .card-header p{
+    font-size: 8pt;
+    margin: 0px;
+    font-weight: bold;
+}
+.MedicalRecord-CardSimple-2 .card-header span{
+    font-size: 8pt;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-2 .card-header h4{
+    margin: 0px;
+}
+.MedicalRecord-CardSimple-2 .card-body{
+    padding: 5px;
+}
+.MedicalRecord-CardSimple-2 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+}
+.MedicalRecord-CardSimple-2 .card-body i{
+    margin-right: 5px;
+    font-size: 10pt;
+}
+.MedicalRecord-CardSimple-2 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+}
+/* CARD SIMPLE - 3 */
+.MedicalRecord-CardSimple-3 {
+    background-color: var(--secondary);
+    border: 1px solid var(--borderColor);
+}
+.MedicalRecord-CardSimple-3 .card-header {
+    padding: 5px;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-3 .card-header .cardTitle{
+    display: flex;
+    align-items: center;
+}
+.MedicalRecord-CardSimple-3 .card-header .cardTitle p{
+    font-size: 12pt;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-3 .card-header .cardTitle i{
+    font-size: 12pt;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-3 .card-header i{
+    margin-right: 5px;
+    font-size: 8pt;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-3 .card-header p{
+    font-size: 8pt;
+    margin: 0px;
+    font-weight: bold;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-3 .card-header span{
+    font-size: 8pt;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-3 .card-header h4{
+    margin: 0px;
+}
+.MedicalRecord-CardSimple-3 .card-body{
+    padding: 5px;
+}
+.MedicalRecord-CardSimple-3 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+    color: var(--textDark);
+    font-weight: bold;
+}
+.MedicalRecord-CardSimple-3 .card-body i{
+    margin-right: 5px;
+    font-size: 10pt;
+}
+.MedicalRecord-CardSimple-3 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+}
+/* CARD SIMPLE - 4 */
+.MedicalRecord-CardSimple-4 {
+    background-color: var(--secondary);
+    border: 1px solid var(--borderColor);
+}
+.MedicalRecord-CardSimple-4 .card-header {
+    padding: 5px;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-4 .card-header .cardTitle{
+    display: flex;
+    align-items: center;
+}
+.MedicalRecord-CardSimple-4 .card-header .cardTitle p{
+    font-size: 12pt;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-4 .card-header .cardTitle i{
+    font-size: 12pt;
+    color: var(--primary);
+}
+.MedicalRecord-CardSimple-4 .card-header i{
+    margin-right: 5px;
+    font-size: 8pt;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-4 .card-header p{
+    font-size: 8pt;
+    margin: 0px;
+    font-weight: bold;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-4 .card-header span{
+    font-size: 8pt;
+    color: var(--textGray);
+}
+.MedicalRecord-CardSimple-4 .card-header h4{
+    margin: 0px;
+}
+.MedicalRecord-CardSimple-4 .card-body{
+    padding: 5px;
+}
+.MedicalRecord-CardSimple-4 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+    color: var(--textDark);
+    font-weight: bold;
+}
+.MedicalRecord-CardSimple-4 .card-body i{
+    margin-right: 5px;
+    font-size: 10pt;
+}
+.MedicalRecord-CardSimple-4 .card-body p{
+    font-size: 10pt;
+    margin: 0px;
+}

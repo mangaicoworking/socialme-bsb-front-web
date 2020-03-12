@@ -1,0 +1,1 @@
+export { default as AdministeredDrugs } from './AdministeredDrugs';

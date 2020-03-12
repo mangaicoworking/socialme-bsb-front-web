@@ -40,8 +40,8 @@ const BrasiliaManagerDashboardPatients = () => {
     const [filters, setFilters] = useState({
         name: '',
         motherName: '',
-        cpf: '',
-        cns: '',
+        CPF: '',
+        CNS: '',
         birth: '',
         prontuarioMV: '',
         prontiarioSES: ''
@@ -49,8 +49,8 @@ const BrasiliaManagerDashboardPatients = () => {
     const [filtersSubmit, setFiltersSubmit] = useState({
         name: '',
         motherName: '',
-        cpf: '',
-        cns: '',
+        CPF: '',
+        CNS: '',
         birth: '',
         prontuarioMV: '',
         prontiarioSES: ''
@@ -63,8 +63,8 @@ const BrasiliaManagerDashboardPatients = () => {
             setFiltersSubmit({
                 name: filters.name,
                 motherName: filters.motherName,
-                cpf: filters.cpf,
-                cns: filters.cns,
+                CPF: filters.CPF,
+                CNS: filters.CNS,
                 birth: `${brokenDate[2]}-${brokenDate[1]}-${brokenDate[0]}`,
                 prontuarioMV: filters.prontuarioMV,
                 prontiarioSES: filters.prontiarioSES
@@ -73,8 +73,8 @@ const BrasiliaManagerDashboardPatients = () => {
             setFiltersSubmit({
                 name: filters.name,
                 motherName: filters.motherName,
-                cpf: filters.cpf,
-                cns: filters.cns,
+                CPF: filters.CPF,
+                CNS: filters.CNS,
                 birth: filters.birth,
                 prontuarioMV: filters.prontuarioMV,
                 prontiarioSES: filters.prontiarioSES
@@ -102,8 +102,8 @@ const BrasiliaManagerDashboardPatients = () => {
                     filters: {
                         name: filtersSubmit.name,
                         mother: filtersSubmit.motherName,
-                        cpf: filtersSubmit.cpf,
-                        cns: filtersSubmit.cns,
+                        cpf: filtersSubmit.CPF,
+                        cns: filtersSubmit.CNS,
                         birth: filtersSubmit.birth,
                         mv: filtersSubmit.prontuarioMV,
                         ses: filtersSubmit.prontiarioSES
@@ -135,7 +135,7 @@ const BrasiliaManagerDashboardPatients = () => {
                 }
             });
         }
-    }, [CallForSomeApi, pagingParametersActions.limit, pagingParametersActions.currentPage, filtersSubmit.name, filtersSubmit.motherName, filtersSubmit.cpf, filtersSubmit.cns, filtersSubmit.birth, filtersSubmit.prontuarioMV, filtersSubmit.prontiarioSES, goAPI]);
+    }, [CallForSomeApi, pagingParametersActions.limit, pagingParametersActions.currentPage, filtersSubmit.name, filtersSubmit.motherName, filtersSubmit.CPF, filtersSubmit.CNS, filtersSubmit.birth, filtersSubmit.prontuarioMV, filtersSubmit.prontiarioSES, goAPI]);
 
     const HandleChangePagingParametersActions = name => event => {
         setPagingParametersActions({ ...pagingParametersActions, [name]: parseInt(event.target.value) });
@@ -288,8 +288,8 @@ const BrasiliaManagerDashboardPatients = () => {
                                                     <label style={{ margin: '0px' }} className="form-control-label">CPF</label>
                                                     <div className="input-group input-group-merge">
                                                         <input
-                                                            onChange={HandleChangeFilters('cpf')}
-                                                            value={filters.cpf}
+                                                            onChange={HandleChangeFilters('CPF')}
+                                                            value={filters.CPF}
                                                             className="form-control"
                                                             placeholder=""
                                                             type="text"
@@ -303,8 +303,8 @@ const BrasiliaManagerDashboardPatients = () => {
                                                     <label style={{ margin: '0px' }} className="form-control-label">CNS</label>
                                                     <div className="input-group input-group-merge">
                                                         <input
-                                                            onChange={HandleChangeFilters('cns')}
-                                                            value={filters.cns}
+                                                            onChange={HandleChangeFilters('CNS')}
+                                                            value={filters.CNS}
                                                             className="form-control"
                                                             placeholder=""
                                                             type="text"
@@ -376,8 +376,8 @@ const BrasiliaManagerDashboardPatients = () => {
                                                     {
                                                         filters.name !== filtersSubmit.name ||
                                                             filters.motherName !== filtersSubmit.motherName ||
-                                                            filters.cpf !== filtersSubmit.cpf ||
-                                                            filters.cns !== filtersSubmit.cns ||
+                                                            filters.CPF !== filtersSubmit.CPF ||
+                                                            filters.CNS !== filtersSubmit.CNS ||
                                                             filters.birth !== filtersSubmit.birth ||
                                                             filters.prontuarioMV !== filtersSubmit.prontuarioMV ||
                                                             filters.prontiarioSES !== filtersSubmit.prontiarioSES ?

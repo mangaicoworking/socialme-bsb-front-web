@@ -76,7 +76,7 @@ const TablePatients = (props) => {
                             <th>Paciente</th>
                             <th>Documentos</th>
                             <th>Nascimento</th>
-                            <th>Origens</th>
+                            <th>Origem</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -122,28 +122,25 @@ const TablePatients = (props) => {
                                 </td>
                                 <td style={{ padding: '10px' }}>
                                     <div style={{ display: 'grid' }}>
-                                        <span className="text-muted">
-                                            <strong>CPF: </strong>
-                                            {item.mainDocument && item.mainDocument.number ?
-                                                <Highlighter
-                                                    highlightClassName="HighlightSocialMe"
-                                                    searchWords={[props.filtersSubmit.cpf]}
-                                                    textToHighlight={item.mainDocument.number}
-                                                />
-                                                :
-                                                'CPF não informado'}
-                                        </span>
-                                        <span className="text-muted">
-                                            <strong>CNS: </strong>
-                                            {item.documents && item.documents[0] && item.documents[0].number ?
-                                                <Highlighter
-                                                    highlightClassName="HighlightSocialMe"
-                                                    searchWords={[props.filtersSubmit.cns]}
-                                                    textToHighlight={item.documents[0].number}
-                                                />
-                                                :
-                                                'CNS não informado'}
-                                        </span>
+
+                                        {item.documents ?
+                                            item.documents.map((document, index) => (
+                                                document.name === 'CPF' || document.name === 'CNS' ?
+                                                    <span key={index} className="text-muted">
+                                                        <strong>{document.name}: </strong>
+                                                        <Highlighter
+                                                            highlightClassName="HighlightSocialMe"
+                                                            searchWords={[props.filtersSubmit[document.name]]}
+                                                            textToHighlight={document.number}
+                                                        />
+                                                    </span>
+                                                    :
+                                                    <></>
+                                            ))
+                                            :
+                                            <></>
+                                        }
+
                                     </div>
                                 </td>
                                 <td style={{ padding: '10px', textAlign: 'center' }}>
@@ -156,8 +153,8 @@ const TablePatients = (props) => {
                                                     textToHighlight={format(addDays(new Date(item.birth.date), 1), 'dd/MM/yyyy')}
                                                 />
                                             </b>
-             
-                                        :
+
+                                            :
                                             'Nascimento não informado'
                                         }
                                         <span className="text-muted"> {item.birth && item.birth.date ? `${new Date().getFullYear() - format(new Date(item.birth.date), 'yyyy')} anos` : 'Nascimento não informado'}</span>
@@ -166,32 +163,22 @@ const TablePatients = (props) => {
                                 <td style={{ padding: '10px' }}>
                                     <div style={{ display: 'grid' }}>
                                         <span className="text-muted">
-                                            <strong>MV: </strong>
-                                            {item.originIds && item.originIds[0] && item.originIds[0].id ?
-                                                <Highlighter
-                                                    highlightClassName="HighlightSocialMe"
-                                                    searchWords={[props.filtersSubmit.prontuarioMV]}
-                                                    textToHighlight={item.originIds[0].id}
-                                                />
-                                                :
-                                                'ID do MV não informado'}
-                                        </span>
-                                        <span className="text-muted">
-                                            <strong>SES: </strong>
-                                            {item.originIds && item.originIds[1] && item.originIds[1].id ?
-                                                <Highlighter
-                                                    highlightClassName="HighlightSocialMe"
-                                                    searchWords={[props.filtersSubmit.prontuarioSES]}
-                                                    textToHighlight={item.originIds[1].id}
-                                                />
-                                                :
-                                                'não informado'}
+                                            <strong>{item.originSystem.name}: </strong>
+                                            <Highlighter
+                                                highlightClassName="HighlightSocialMe"
+                                                searchWords={[props.filtersSubmit.prontuarioMV]}
+                                                textToHighlight={item.originSystem.id}
+                                            />
                                         </span>
                                     </div>
                                 </td>
                                 <td style={{ padding: '10px', textAlign: 'center' }} className="table-actions">
+
                                     <Link to={`/paciente/${item._id}`} target="_blank" >
-                                        <i className="far fa-eye"></i>
+                                        <button className="btn btn-icon btn-primary btn-sm" type="button">
+                                            <span className="btn-inner--icon"><i className="far fa-eye"></i></span>
+                                            <span className="btn-inner--text">Visualizar</span>
+                                        </button>
                                     </Link>
                                 </td>
                             </tr>

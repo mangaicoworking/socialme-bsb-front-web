@@ -1,5 +1,5 @@
 import React from 'react';
-import './PatientPage.css';
+import './ConsultationPage.css';
 //OWN COMPONENTS
 import { UserCard } from './Components/UserCard';
 //LIBRARYS
@@ -15,7 +15,7 @@ import { Adresses } from './Pages/Adresses';
 import { Records } from './Pages/Records';
 import { MedicalRecord } from './Pages/MedicalRecord';
 
-const PatientPageView = (props) => {
+const ConsultationPageView = (props) => {
     const renderRandomImage = (patient) => {
         let age;
         let sex;
@@ -97,7 +97,7 @@ const PatientPageView = (props) => {
                                     <li className="nav-item p-0 text-center">
                                         <a className="nav-link active" data-toggle="tab" href="#basicInformation" role="tablist">
                                             <i className="ni far fa-user-circle mr-2"></i>
-                                            Informações Básicas
+                                            Informações Básicas2
                                         </a>
                                     </li>
                                     <li className="nav-item text-center">
@@ -177,4 +177,4 @@ const PatientPageView = (props) => {
     );
 }
 
-export default PatientPageView;
+export default ConsultationPageView;

@@ -1,0 +1,28 @@
+.Documents-Row{
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid var(--borderColor);
+    padding: 10px 0px;
+}
+.Documents-Row-ImageContainer{
+    width: 100px;
+    height: 100px;
+    display: grid;
+    align-items: center;
+}
+.Documents-Row-ImageContainer img{
+    width: 90px;
+    height: auto;
+}
+.Documents-Row-InputsContainer{
+    width: inherit;
+    padding-left: 15px;
+}
+/* PAGE */
+.PageDocuments label{
+    margin-bottom: 0px;
+}
+.PageDocuments input{
+    height: 30px; 
+    padding: 0px 5px;
+}

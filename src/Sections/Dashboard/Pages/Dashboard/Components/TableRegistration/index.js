@@ -10,10 +10,10 @@ const TableRegistration = () => {
     //CONTEXTS
     const { CallForSomeApi } = useContext(AxiosContext);
     //VARIABLES
-    const [totalCache, setTotalCache] = useState(109000);
-    const [totalMV, setTotalMV] = useState(5100000);
-    const [totalUniques, setTotalUniques] = useState(3200000);
-    const [total, setTotal] = useState(8409000);
+    const [totalCache, setTotalCache] = useState();
+    const [totalMV, setTotalMV] = useState();
+    const [totalUniques, setTotalUniques] = useState();
+    const [total, setTotal] = useState();
     const [loadCache, setLoadCache] = useState(true);
     const [loadMV, setLoadMV] = useState(true);
     const [loadUniques, setLoadUniques] = useState(true);
@@ -32,25 +32,30 @@ const TableRegistration = () => {
             setTotalMV(axiosResponse.body.total);
             setLoadMV(false);
         });
-    }, []);
+    }, [CallForSomeApi, totalMV]);
+
+    useEffect(() => {
+        if(totalMV && totalCache && totalUniques){
+            setTotal(totalCache + totalMV + totalUniques);
+            setLoadTotal(false);
+        }
+    }, [totalCache, totalMV, totalUniques]);
 
     useEffect(() => {
         setTimeout(
             function () {
+                setTotalCache(15607255);
                 setLoadCache(false);
             },1500
         );
 
         setTimeout(
             function () {
+                setTotalUniques(3619768);
                 setLoadUniques(false);
             },2500
         );
-        setTimeout(
-            function () {
-                setLoadTotal(false);
-            },3000
-        );
+
     }, []);
 
     return (
