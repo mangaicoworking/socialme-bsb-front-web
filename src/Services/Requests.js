@@ -2,6 +2,7 @@
 //const socialMe = 'http://192.168.2.16:3000/ergCNTis';
 //const socialMe = 'https://socialme-api.herokuapp.com/ergCNTis';
 const socialMeBSB = 'https://oracleapibsb.socialme.com.br/mRG1SOsr1lTQh1PxcFXu';
+//const socialMeBSB = 'http://oracleapibsb.socialme.com.br:3001/mRG1SOsr1lTQh1PxcFXu';
 //const socialMeBSB = 'http://192.168.2.16:3000/mRG1SOsr1lTQh1PxcFXu/';
 
 const Requests = {
@@ -30,7 +31,7 @@ const Requests = {
         baseURL: socialMeBSB,
         url: '/people',
         method: 'post',
-        timeout: '50000',
+        timeout: '500000',
         responses: [
             {
                 response: 'Person found',
@@ -59,6 +60,15 @@ const Requests = {
     GetTotalRecords: {
         baseURL: socialMeBSB,
         url: '/people/count',
+        method: 'post',
+        timeout: '50000',
+        responses: [
+            
+        ]   
+    },
+    GetTotalActivities: {
+        baseURL: socialMeBSB,
+        url: '/person/countActivities',
         method: 'post',
         timeout: '50000',
         responses: [

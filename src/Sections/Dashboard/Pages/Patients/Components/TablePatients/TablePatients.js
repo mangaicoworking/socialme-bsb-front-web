@@ -76,7 +76,7 @@ const TablePatients = (props) => {
                             <th>Paciente</th>
                             <th>Documentos</th>
                             <th>Nascimento</th>
-                            <th>Origem</th>
+                            <th>Relações</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -106,6 +106,15 @@ const TablePatients = (props) => {
                                             :
                                             <b>Nome não informado</b>
                                         }
+                                        <span className="text-muted">
+                                            <strong>IDPC: </strong>
+
+                                            <Highlighter
+                                                highlightClassName="HighlightSocialMe"
+                                                searchWords={[props.filtersSubmit.prontuarioMV]}
+                                                textToHighlight={item.idpc}
+                                            />
+                                        </span>
                                         {item.mother && item.mother.name ?
                                             <b>
                                                 <strong>MÃE: </strong>
@@ -123,23 +132,28 @@ const TablePatients = (props) => {
                                 <td style={{ padding: '10px' }}>
                                     <div style={{ display: 'grid' }}>
 
-                                        {item.documents ?
-                                            item.documents.map((document, index) => (
-                                                document.name === 'CPF' || document.name === 'CNS' ?
-                                                    <span key={index} className="text-muted">
-                                                        <strong>{document.name}: </strong>
-                                                        <Highlighter
-                                                            highlightClassName="HighlightSocialMe"
-                                                            searchWords={[props.filtersSubmit[document.name]]}
-                                                            textToHighlight={document.number}
-                                                        />
-                                                    </span>
-                                                    :
-                                                    <></>
-                                            ))
-                                            :
-                                            <></>
-                                        }
+                                        <span className="text-muted">
+                                            <strong>CPF: </strong>
+                                            <Highlighter
+                                                highlightClassName="HighlightSocialMe"
+                                                searchWords={[props.filtersSubmit.CPF]}
+                                                textToHighlight={item.document.cpf.number ? item.document.cpf.number : 'CPF não informado'}
+                                            />
+                                        </span>
+
+                                        <span className="text-muted">
+                                            <strong>CNS: </strong>
+                                            <Highlighter
+                                                highlightClassName="HighlightSocialMe"
+                                                searchWords={[props.filtersSubmit.CNS]}
+                                                textToHighlight={item.document.cns.number ? item.document.cns.number : 'CNS não informado'}
+                                            />
+                                        </span>
+
+                                        <span className="text-muted">
+                                            <strong>SES: </strong>
+                                            <span>{item.document.ses.number ? item.document.ses.number : 'SES não informado'}</span>
+                                        </span>
 
                                     </div>
                                 </td>
@@ -149,7 +163,7 @@ const TablePatients = (props) => {
                                             <b>
                                                 <Highlighter
                                                     highlightClassName="HighlightSocialMe"
-                                                    searchWords={[props.filters.birth]}
+                                                    searchWords={[`${props.filtersSubmit.birth.split("-")[2]}/${props.filtersSubmit.birth.split("-")[1]}/${props.filtersSubmit.birth.split("-")[0]}`]}
                                                     textToHighlight={format(addDays(new Date(item.birth.date), 1), 'dd/MM/yyyy')}
                                                 />
                                             </b>
@@ -162,14 +176,19 @@ const TablePatients = (props) => {
                                 </td>
                                 <td style={{ padding: '10px' }}>
                                     <div style={{ display: 'grid' }}>
-                                        <span className="text-muted">
-                                            <strong>{item.originSystem.name}: </strong>
-                                            <Highlighter
-                                                highlightClassName="HighlightSocialMe"
-                                                searchWords={[props.filtersSubmit.prontuarioMV]}
-                                                textToHighlight={item.originSystem.id}
-                                            />
-                                        </span>
+
+                                        {item.ids.map((origin, index) => (
+                                            <span key={index} className="text-muted text-center">
+                                                <strong>{origin.system}: </strong>
+
+                                                <Highlighter
+                                                    highlightClassName="HighlightSocialMe"
+                                                    searchWords={[props.filtersSubmit.prontuarioMV]}
+                                                    textToHighlight={origin.id}
+                                                />
+                                            </span>
+                                        ))}
+
                                     </div>
                                 </td>
                                 <td style={{ padding: '10px', textAlign: 'center' }} className="table-actions">

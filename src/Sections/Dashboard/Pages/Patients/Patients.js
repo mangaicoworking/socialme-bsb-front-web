@@ -114,12 +114,12 @@ const BrasiliaManagerDashboardPatients = () => {
                 console.log(axiosResponse);
                 //console.log(axiosResponse.body.PeopleList.length);
                 if (axiosResponse.body) {
-                    if (axiosResponse.body.PeopleList) {
-                        setPeople(axiosResponse.body.PeopleList);
+                    if (axiosResponse.body.SharpPeopleList) {
+                        setPeople(axiosResponse.body.SharpPeopleList);
                     }
                     setPagingParameters({
                         limit: axiosResponse.body.limit,
-                        totalDocs: axiosResponse.body.PersonCount,
+                        totalDocs: axiosResponse.body.SharpPersonCount,
                         totalPages: axiosResponse.body.totalPages,
                         hasNextPage: axiosResponse.body.hasNextPage,
                         hasPrevPage: axiosResponse.body.hasPrevPage,

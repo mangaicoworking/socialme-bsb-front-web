@@ -148,7 +148,7 @@ const PatientPageView = (props) => {
                                     <Adresses patient={props.patient} />
                                 </div>
                                 <div className="tab-pane fade" id="registros">
-                                    <Records />
+                                    <Records patient={props.patient} />
                                 </div>
                                 <div className="tab-pane fade" id="medicalRecord">
                                     <MedicalRecord />

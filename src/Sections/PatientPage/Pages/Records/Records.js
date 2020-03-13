@@ -5,7 +5,7 @@ import Table2 from './Components/Table2';
 import Table3 from './Components/Table3';
 import Table4 from './Components/Table4';
 
-const Records = () => {
+const Records = (props) => {
   return (
     <div className="card">
       <div className="card-header bg-transparent">
@@ -22,17 +22,17 @@ const Records = () => {
         <div className="row">
           <div className="col-md-2"></div>
           <div className="col-md-3">
-            <Table1 />
+            <Table1 patient={props.patient} />
           </div>
           <div className="col-md-2"></div>
           <div className="col-md-3">
-            <Table2 />
+            <Table2 patient={props.patient} />
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-5">
-            <Table3 />
+            <Table3 patient={props.patient} />
           </div>
           <div className="col-md-7">
             <Table4 />

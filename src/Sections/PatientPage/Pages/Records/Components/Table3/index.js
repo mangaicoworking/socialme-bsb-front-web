@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Table3 = () => {
-    return ( 
+const Table3 = (props) => {
+    return (
 
         <table className="table text-center">
             <thead className="bg-primary">
@@ -13,41 +13,30 @@ const Table3 = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> 
-                        <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userCache.jpg" style={{ width: '20px', height: '20px' }} /> 
-                    </td>
-                    <td>Cache</td>
-                    <td>ABC1235</td>
-                    <td>Integrado</td>
-                </tr>
-                <tr>
-                    <td> 
-                        <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userCache.jpg" style={{ width: '20px', height: '20px' }} /> 
-                    </td>
-                    <td>Cache</td>
-                    <td>JS325</td>
-                    <td>Principal</td>
-                </tr>
-                <tr>
-                    <td> 
-                        <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userMV.jpg" style={{ width: '20px', height: '20px' }} /> 
-                    </td>
-                    <td>MV</td>
-                    <td>6952488</td>
-                    <td>Integrado</td>
-                </tr>
-                <tr>
-                    <td> 
-                        <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userMV.jpg" style={{ width: '20px', height: '20px' }} /> 
-                    </td>
-                    <td>MV</td>
-                    <td>2652164</td>
-                    <td>Principal</td>
-                </tr>
+
+                {props.patient.ids.map((origin, index) => (
+                    <tr key={index}>
+                        <td>
+                            {origin.system === "CACHE" ?
+                                <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userCache.jpg" style={{ width: '20px', height: '20px' }} />
+                                :
+                                <></>
+                            }
+                            {origin.system === "MV" ?
+                                <img className="avatar rounded-circle" alt="Descr" src="../../assets/img/theme/userMV.jpg" style={{ width: '20px', height: '20px' }} />
+                                :
+                                <></>
+                            }
+                        </td>
+                        <td>{origin.system}</td>
+                        <td>{origin.id}</td>
+                        <td>Integrado</td>
+                    </tr>
+                ))}
+
             </tbody>
         </table>
     );
 }
- 
+
 export default Table3;

@@ -37,7 +37,7 @@ const Documents = (props) => {
                                         </div>
                                     </div>
                                 </th>
-                                <td>{props.patient.mainDocument ? cpfMask(props.patient.mainDocument.number) : ''}</td>
+                                <td>{props.patient.document.cpf.number ? cpfMask(props.patient.document.cpf.number) : ''}</td>
                             </tr>
                              {/* CNS */}
                              <tr>
@@ -49,7 +49,7 @@ const Documents = (props) => {
                                         </div>
                                     </div>
                                 </th>
-                                <td>{props.patient.documents && props.patient.documents[0] ?  props.patient.documents[0].number : ''}</td>
+                                <td>{props.patient.document.cns.number ?  props.patient.document.cns.number : ''}</td>
                             </tr>
                             {/* RG */}
                             <tr>
@@ -61,9 +61,9 @@ const Documents = (props) => {
                                         </div>
                                     </div>
                                 </th>
-                                <td>{props.patient.documents && props.patient.documents[1] ? props.patient.documents[1].number : ''}</td>
+                                <td>{props.patient.document.rg.number ? props.patient.document.rg.number : ''}</td>
                             </tr>
-                            {/* TITULO */}
+                            {/* TITULO 
                             <tr>
                                 <th scope="row">
                                     <div className="media align-items-center">
@@ -75,6 +75,7 @@ const Documents = (props) => {
                                 </th>
                                 <td>{props.patient.documents && props.patient.documents[2] ? props.patient.documents[2].number : ''}</td>
                             </tr>
+                            */}
 
                         </tbody>
                     </table>
