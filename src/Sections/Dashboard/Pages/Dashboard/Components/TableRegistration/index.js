@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 //COMPONENTS
 import { LoaderDefault } from './../../../../../../Components/Loader/LoaderDefault';
 //CONTEXTS
-import { AxiosContext } from './../../../../../../Contexts/AxiosContext';
+//import { AxiosContext } from './../../../../../../Contexts/AxiosContext';
 //SERVICES
 import { normalNumber } from './../../../../../../Services/masks';
 
 const TableRegistration = () => {
     //CONTEXTS
-    const { CallForSomeApi } = useContext(AxiosContext);
+    //const { CallForSomeApi } = useContext(AxiosContext);
     //VARIABLES
     const [totalCache, setTotalCache] = useState();
     const [totalMV, setTotalMV] = useState();
@@ -20,6 +20,7 @@ const TableRegistration = () => {
     const [loadTotal, setLoadTotal] = useState(true);
 
     //FUNCTIONS
+    /*
     useEffect(() => {
         const params = {
             operation: 'GetTotalRecords',
@@ -33,6 +34,7 @@ const TableRegistration = () => {
             setLoadMV(false);
         });
     }, [CallForSomeApi, totalMV]);
+    */
 
     useEffect(() => {
         if(totalMV && totalCache && totalUniques){
@@ -47,6 +49,13 @@ const TableRegistration = () => {
                 setTotalCache(15607255);
                 setLoadCache(false);
             },1500
+        );
+
+        setTimeout(
+            function () {
+                setTotalMV(7747525);
+                setLoadMV(false);
+            },2000
         );
 
         setTimeout(

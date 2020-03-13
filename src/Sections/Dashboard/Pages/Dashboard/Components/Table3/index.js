@@ -1,9 +1,34 @@
 import React from 'react';
+import './Table3.css';
+//import { Link } from 'react-router-dom';
+
+const dataFake = [
+    { name: "THALITA AMANDA REGO LEWIS CRISOSTOMO", repetitions: 8, id: 4636786 },
+    { name: "MARIA DA CONCEICAO LOPES DA SILVA", repetitions: 8, id: 4636786 },
+    { name: "MARIA DA CONCEICAO VIANA CORTES", repetitions: 8, id: 4643243 },
+    { name: "NAYELE MENDONCA", repetitions: 8, id: 5454868 },
+    { name: "MARIA DA CONCEICAO NUNES DE OLIVEIRA", repetitions: 8, id: 4638371 },
+    { name: "LAIS GONCALVES DA SILVA", repetitions: 8, id: 3851853 },
+    { name: "JOSE LOURENCO DE SOUZA", repetitions: 8, id: 3475052 },
+    { name: "MARIA DA CONCEICAO DE ANDRADE CARVALHO", repetitions: 8, id: 4632289 },
+    { name: "ARNALDO PEREIRA DA CONCEICAO", repetitions: 7, id: 748493 },
+    { name: "LUCAS BANDEIRA DA CONCEICAO", repetitions: 7, id: 4114631 },
+    { name: "VANIA RODRIGUES DE SOUSA SILVA", repetitions: 7, id: 6808304 },
+    { name: "CONCEICAO DA SILVA SANTANA", repetitions: 7, id: 1239432 },
+    { name: "CARINA CONCEICAO DA SILVA", repetitions: 7, id: 976366 },
+    { name: "JOSE EVANGELISTA DA ROCHA SILVA", repetitions: 7, id: 3444689 },
+    { name: "AGAMENON MONDEGO PAVAO", repetitions: 7, id: 102809 },
+    { name: "CONCEICAO DE MARIA DA SILVA", repetitions: 7, id: 1240145 },
+    { name: "DESILMA DA COSTA TAVARES", repetitions: 7, id: 1483560 },
+    { name: "VITOR ALBUQUERQUE DE SOUSA", repetitions: 7, id: 6893050 },
+    { name: "NATALIA DE SOUSA GONCALVES", repetitions: 7, id: 5420883 },
+    { name: "MARISA DA CONCEICAO DE CARVALHO", repetitions: 7, id: 5145414 }
+]
 
 const Table3 = () => {
-    return( 
+    return (
 
-        <table className="table text-center">
+        <table className="table text-center table-responsive Dashboard-Table3">
             <thead className="bg-primary">
                 <tr>
                     <th scope="col" className="text-center text-white">Posição</th>
@@ -12,109 +37,20 @@ const Table3 = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1º</td>
-                    <td>Francisca Maria da Conceicao</td>
-                    <td>268</td>
-                </tr>
-                <tr>
-                    <td>2º</td>
-                    <td>Maria Pereira da Silva</td>
-                    <td>263</td>
-                </tr>
-                <tr>
-                    <td>3º</td>
-                    <td>Maria Jose da Silva</td>
-                    <td>233</td>
-                </tr>
-                <tr>
-                    <td>4º</td>
-                    <td>Maria da Conceicao</td>
-                    <td>228</td>
-                </tr>
-                <tr>
-                    <td>5º</td>
-                    <td>Josefa Maria da Conceicao</td>
-                    <td>226</td>
-                </tr>
-                <tr>
-                    <td>6º</td>
-                    <td>Ana Maria de Jesus</td>
-                    <td>202</td>
-                </tr>
-                <tr>
-                    <td>7º</td>
-                    <td>Maria Rosa de Jesus</td>
-                    <td>185</td>
-                </tr>
-                <tr>
-                    <td>8º</td>
-                    <td>Antonia Maria da Conceicao</td>
-                    <td>183</td>
-                </tr>
-                <tr>
-                    <td>9º</td>
-                    <td>Ana Maria da Conceicao</td>
-                    <td>183</td>
-                </tr>
-                <tr>
-                    <td>10º</td>
-                    <td>Maria Alves da Silva</td>
-                    <td>183</td>
-                </tr>
-                <tr>
-                    <td>11º</td>
-                    <td>Maria Pereira dos Santos</td>
-                    <td>169</td>
-                </tr>
-                <tr>
-                    <td>12º</td>
-                    <td>Maria Francisca da Conceicao</td>
-                    <td>165</td>
-                </tr>
-                <tr>
-                    <td>13º</td>
-                    <td>Joana Maria da Conceicao</td>
-                    <td>150</td>
-                </tr>
-                <tr>
-                    <td>14º</td>
-                    <td>Maria Francisca de Jesus</td>
-                    <td>137</td>
-                </tr>
-                <tr>
-                    <td>15º</td>
-                    <td>Maria Ferreira da Silva</td>
-                    <td>135</td>
-                </tr>
-                <tr>
-                    <td>16º</td>
-                    <td>Maria de Lourdes da Silva</td>
-                    <td>134</td>
-                </tr>
-                <tr>
-                    <td>17º</td>
-                    <td>Maria Rodrigues da Silva</td>
-                    <td>134</td>
-                </tr>
-                <tr>
-                    <td>18º</td>
-                    <td>Maria Jose dos Santos</td>
-                    <td>115</td>
-                </tr>
-                <tr>
-                    <td>19º</td>
-                    <td>Maria de Jesus</td>
-                    <td>111</td>
-                </tr>
-                <tr>
-                    <td>20º</td>
-                    <td>Francisca Maria de Jesus</td>
-                    <td>110</td>
-                </tr>
+
+                {dataFake.map((item, index) => (
+                    <tr key={index}>
+                        <td>{index + 1}º</td>
+                        <td>
+                            {item.name}
+                        </td>
+                        <td>{item.repetitions}</td>
+                    </tr>
+                ))}
+
             </tbody>
         </table>
     );
 }
- 
+
 export default Table3;

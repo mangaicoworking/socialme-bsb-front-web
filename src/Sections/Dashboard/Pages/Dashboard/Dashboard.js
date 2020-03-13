@@ -67,7 +67,10 @@ const BrasiliaManagerDashboard = () => {
                                                 <div className="mb-3">
                                                     <small className="text-uppercase font-weight-bold">Maiores Repetições</small>
                                                 </div>
+                                               
                                                 <Table3 />
+                                            
+                                                
                                             </div>
                                         </div>
                                     </div>
