@@ -13,8 +13,8 @@ const Login = () => {
     const { CallForSomeApi } = useContext(AxiosContext);
     const { user, populateAuth } = useContext(AuthContext);
     //VARIABLES
-    const [mainDocument, setMainDocument] = useState('30678207000180');
-    const [password, setPassword] = useState('12345');
+    const [mainDocument, setMainDocument] = useState('30678207000181');
+    const [password, setPassword] = useState('123455');
     const [consultingAPI, setConsultingAPI] = useState(false);
     const [error, setError] = useState(false);
     //MAIN DOCUMENT
