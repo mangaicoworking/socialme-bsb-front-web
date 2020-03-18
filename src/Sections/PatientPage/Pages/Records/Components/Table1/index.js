@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { set } from 'date-fns';
 
 const Table1 = (props) => {
+    console.log(props)
     const [totalCache, setTotalCache] = useState(0);
     const [totalMV, setTotalMV] = useState(0);
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
         if(props.patient.ids){
+            let count = 0;
             props.patient.ids.map((id) => {
-                if (id.system === "CACHE") setTotalCache(totalCache+1);
+                if (id.system === "CACHE") count++;
             })
+            setTotalCache(count);
         }
     }, [props.patient.ids]);
 
     useEffect(() => {
         if(props.patient.ids){
+            let count = 0;
             props.patient.ids.map((id) => {
-                if (id.system === "MV") setTotalMV(totalMV+1)
+                if (id.system === "MV") count++;
             })
+            setTotalMV(count);
         }
     }, [props.patient.ids]);
 
