@@ -17,7 +17,8 @@ const UserCard = (props) => {
                     <p style={{ textTransform: 'uppercase' }}>
                         {props.patient.name}
                     </p>
-                    <span><strong>CPF: </strong>{props.patient && props.patient.mainDocument && props.patient.mainDocument.number ? cpfMask(props.patient.mainDocument.number) : 'CPF não informado'} </span>
+                    <span><strong>CPF: </strong>
+                    {props.patient.document.cpf.number ? cpfMask(props.patient.document.cpf.number) : 'CPF não informado'} </span>
                 </div>
             </div>
         </div>

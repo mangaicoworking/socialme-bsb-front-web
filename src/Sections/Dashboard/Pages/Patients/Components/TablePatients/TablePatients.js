@@ -150,11 +150,6 @@ const TablePatients = (props) => {
                                             />
                                         </span>
 
-                                        <span className="text-muted">
-                                            <strong>SES: </strong>
-                                            <span>{item.document.ses.number ? item.document.ses.number : 'SES não informado'}</span>
-                                        </span>
-
                                     </div>
                                 </td>
                                 <td style={{ padding: '10px', textAlign: 'center' }}>
@@ -178,15 +173,24 @@ const TablePatients = (props) => {
                                     <div style={{ display: 'grid' }}>
 
                                         {item.ids.map((origin, index) => (
-                                            <span key={index} className="text-muted text-center">
-                                                <strong>{origin.system}: </strong>
-
-                                                <Highlighter
-                                                    highlightClassName="HighlightSocialMe"
-                                                    searchWords={[props.filtersSubmit.prontuarioMV]}
-                                                    textToHighlight={origin.id}
-                                                />
-                                            </span>
+                                            index > 2 ?
+                                                <></>
+                                                :
+                                                index === 2 ?
+                                                    <span key={index} className="text-muted text-center">
+                                                        <Link to="#">
+                                                            <span className="text-muted">+ {item.ids.length - 2} {item.ids.length - 2 === 1 ? 'relação' : 'relações'}</span>
+                                                        </Link>
+                                                    </span>
+                                                    :
+                                                    <span key={index} className="text-muted text-center">
+                                                        <strong>{origin.system}: </strong>
+                                                        <Highlighter
+                                                            highlightClassName="HighlightSocialMe"
+                                                            searchWords={[props.filtersSubmit.prontuarioMV]}
+                                                            textToHighlight={origin.id}
+                                                        />
+                                                    </span>
                                         ))}
 
                                     </div>
