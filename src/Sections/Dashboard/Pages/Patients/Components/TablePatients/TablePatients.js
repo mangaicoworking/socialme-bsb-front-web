@@ -1,7 +1,7 @@
 import React from 'react';
 //LIBRARYS
 import { Link } from 'react-router-dom';
-import { format, addDays } from 'date-fns';
+import { format, addDays, subYears, getYear } from 'date-fns';
 import Highlighter from "react-highlight-words";
 //SERVICES
 //import { cpfMaskContinuos } from './../../../../../../Services/masks';
@@ -66,6 +66,21 @@ const TablePatients = (props) => {
                 }
             }
         }
+    }
+    const NewDate = (birthDate) => {
+        let age = new Date().getFullYear() - format(new Date(birthDate), 'yyyy');
+        age += age <= 0 ? 100 : 0;
+        return age;
+    }
+    const FormatNewDate = (birthDate) => {
+        if (birthDate) {
+            let givenDate = new Date(birthDate);
+            givenDate = subYears(givenDate, getYear(givenDate) > getYear(new Date()) ? 100 : 0);
+            return format(givenDate, 'dd/MM/yyyy');
+        } else {
+            return 'Nascimento não informado';
+        }
+
     }
     return (
         <>
@@ -159,14 +174,14 @@ const TablePatients = (props) => {
                                                 <Highlighter
                                                     highlightClassName="HighlightSocialMe"
                                                     searchWords={[`${props.filtersSubmit.birth.split("-")[2]}/${props.filtersSubmit.birth.split("-")[1]}/${props.filtersSubmit.birth.split("-")[0]}`]}
-                                                    textToHighlight={format(addDays(new Date(item.birth.date), 1), 'dd/MM/yyyy')}
+                                                    textToHighlight={FormatNewDate(item.birth.date ? item.birth.date : '')}
                                                 />
                                             </b>
 
                                             :
                                             'Nascimento não informado'
                                         }
-                                        <span className="text-muted"> {item.birth && item.birth.date ? `${new Date().getFullYear() - format(new Date(item.birth.date), 'yyyy')} anos` : 'Nascimento não informado'}</span>
+                                        <span className="text-muted"> {item.birth && item.birth.date ? `${NewDate(item.birth.date)} anos` : 'Nascimento não informado'}</span>
                                     </div>
                                 </td>
                                 <td style={{ padding: '10px' }}>

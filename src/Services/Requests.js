@@ -1,7 +1,7 @@
 //const socialMe = 'https://social-me-v2.herokuapp.com/ergCNTis';
 //const socialMe = 'http://192.168.2.16:3000/ergCNTis';
 //const socialMe = 'https://socialme-api.herokuapp.com/ergCNTis';
-const socialMeBSB = 'https://oracleapibsb.socialme.com.br/mRG1SOsr1lTQh1PxcFXu';
+const socialMeBSB = 'http://152.67.37.200:3000/mRG1SOsr1lTQh1PxcFXu';
 //const socialMeBSB = 'http://oracleapibsb.socialme.com.br:3001/mRG1SOsr1lTQh1PxcFXu';
 //const socialMeBSB = 'http://192.168.2.16:3000/mRG1SOsr1lTQh1PxcFXu/';
 
