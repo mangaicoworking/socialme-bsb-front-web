@@ -1,57 +1,57 @@
-import React from 'react';
-import { MakeRouteWithSubRoutes } from './Services/MakeRouteWithSubRoutes';
-import { Switch } from 'react-router-dom';
+import React from "react";
+import { MakeRouteWithSubRoutes } from "./Services/MakeRouteWithSubRoutes";
+import { Switch } from "react-router-dom";
 
-import { Login } from './Sections/Login';
-import { Dashboard } from './Sections/Dashboard';
-import { DashboardDashboard } from './Sections/Dashboard/Pages/Dashboard';
-import { DashboardPatients } from './Sections/Dashboard/Pages/Patients';
-import { DashboardAlerts } from './Sections/Dashboard/Pages/Alerts';
+import { Login } from "./Sections/Login";
+import { Dashboard } from "./Sections/Dashboard";
+import { DashboardDashboard } from "./Sections/Dashboard/Pages/Dashboard";
+import { DashboardPatients } from "./Sections/Dashboard/Pages/Patients";
+import { DashboardAlerts } from "./Sections/Dashboard/Pages/Alerts";
 
-import { PatientPage } from './Sections/PatientPage';
-import { ConsultationPage } from './Sections/ConsultationPage';
-import { Socket } from './Sections/Socket';
+import { PatientPage } from "./Sections/PatientPage";
+import { ConsultationPage } from "./Sections/ConsultationPage";
+import { Socket } from "./Sections/Socket";
 
 const routes = [
   {
     path: "/",
     exact: true,
     protected: false,
-    component: Login
+    component: Login,
   },
   {
     path: "/me",
-    protected: true,
+    protected: false,
     component: Dashboard,
     routes: [
       {
         path: "/me/dashboard",
-        component: DashboardDashboard
+        component: DashboardDashboard,
       },
       {
         path: "/me/pacientes",
-        component: DashboardPatients
+        component: DashboardPatients,
       },
       {
         path: "/me/alertas",
-        component: DashboardAlerts
-      }
-    ]
+        component: DashboardAlerts,
+      },
+    ],
   },
   {
     path: "/paciente/:idPatient",
-    protected: true,
-    component: PatientPage
+    protected: false,
+    component: PatientPage,
   },
   {
     path: "/consulta/:idConsultation",
-    protected: true,
-    component: ConsultationPage
+    protected: false,
+    component: ConsultationPage,
   },
   {
     path: "/socket",
-    protected: true,
-    component: Socket
+    protected: false,
+    component: Socket,
   },
 ];
 
@@ -59,11 +59,9 @@ export const Routes = (props) => {
   return (
     <div>
       <Switch>
-        {
-          routes.map(
-            (route, index) => <MakeRouteWithSubRoutes key={index} {...route} />
-          )
-        }
+        {routes.map((route, index) => (
+          <MakeRouteWithSubRoutes key={index} {...route} />
+        ))}
       </Switch>
     </div>
   );
