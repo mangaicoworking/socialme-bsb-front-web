@@ -19,7 +19,33 @@ const BrasiliaManagerDashboardPatients = () => {
     //VARIABLES
     const [render, setRender] = useState(true);
     const [load, setLoad] = useState(false);
-    const [people, setPeople] = useState([]);
+    const [people, setPeople] = useState([
+        {
+            name: 'Arthur de Melo Gerônimo',
+            sex: 'M',
+            idpc: '123',
+            mother: {
+                name: 'Maria Goreth Meira de Melo'
+            },
+            birth: {
+                date: '1993-06-16'
+            },
+            document: {
+                cpf: {
+                    number: '014.380.742-04'
+                },
+                cns: {
+                    number: '014.380.742-04'
+                }
+            },
+            ids: [
+                {
+                    system: 'Origem',
+                    id: '123',
+                }
+            ]
+        }
+    ]);
     const [goAPI, setGoAPI] = useState(false);
     const [pagingParametersActions, setPagingParametersActions] = useState({
         limit: 10,
@@ -402,7 +428,32 @@ const BrasiliaManagerDashboardPatients = () => {
                                     <></>
                                 }
 
-                                {renderTable()}
+                                <br />
+                                <div className="row" style={{ alignItems: 'center' }}>
+                                    <div className="col-6">
+                                        <PaginationInformation parameters={pagingParameters} />
+                                    </div>
+                                    <div className="col-6 text-right">
+                                        <Pagination parameters={pagingParameters} SetNewPage={SetNewPage} />
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div className="row">
+                                    <div style={{ overflow: 'auto' }} className="col-md-12">
+                                        <TablePatients data={people ? people : ''} filtersSubmit={filtersSubmit} filters={filters} />
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div className="row" style={{ alignItems: 'center' }}>
+                                    <div className="col-6">
+                                        <PaginationInformation parameters={pagingParameters} />
+                                    </div>
+                                    <div className="col-6 text-right">
+                                        <Pagination parameters={pagingParameters} SetNewPage={SetNewPage} />
+                                    </div>
+                                </div>
 
                             </div>{/* /card-body */}
                         </div>

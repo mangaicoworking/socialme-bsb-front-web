@@ -141,9 +141,11 @@ const PatientPageView = (props) => {
                                 <div className="tab-pane fade active show" id="basicInformation">
                                     <BasicInformation patient={props.patient} />
                                 </div>
+                                
                                 <div className="tab-pane fade" id="documents">
                                     <Documents patient={props.patient} />
                                 </div>
+                                
                                 <div className="tab-pane" id="adresses">
                                     <Adresses patient={props.patient} />
                                 </div>
